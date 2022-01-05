@@ -55,7 +55,7 @@ class UpdatePlayersTask extends AsyncTask{
         foreach($res['errors'] as $e){
             $server->getLogger()->warning($e);
         }
-        $plugin = $server->getPluginManager()->getPlugin('MultiServerCounter');
+        $plugin = $server->getPluginManager()->getPlugin('MultiPlayerCounter');
         if($plugin !== null && $plugin->isEnabled()){
             /** @var $plugin Main */
             $plugin->setCachedPlayers($res['count']);
