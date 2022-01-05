@@ -1,20 +1,24 @@
-# MultiServerCounter
-A PocketMine-MP plugin that combines online players counts of multiple servers.
+[![](https://poggit.pmmp.io/shield.state/MultiPlayerCounter)]
+<div align="center">
+<h1>MultiPlayerCounter| v0.0.1<h1>
+<p>Combine players of multiple servers.</p>
+</div>
 
-*Latest development phars: https://poggit.pmmp.io/ci/luca28pet/MultiServerCounter/MultiServerCounter*
-
-This is useful e.g. when you have a lobby server and other gamemodes on different servers, and you want the lobby server to display  the number of players of all the servers, combined, when queried from a server list or the menu in the MCBE client.
-
-**How to use:**
-- Drop the phar in the plugins folder
-- Restart the server
-- Edit the config.yml found in plugins_data/MultiServerCounter and add the server you want to query
-- Save the file and restart the server
-
-**config.yml**
-
-```
+## Features
+- Combine players of multiple servers
+- Easy to set up
+  
+# Config
+```yaml
 ---
+#  __  __       _ _   _ ____  _                        ____                  _            
+# |  \/  |_   _| | |_(_)  _ \| | __ _ _   _  ___ _ __ / ___|___  _   _ _ __ | |_ ___ _ __ 
+# | |\/| | | | | | __| | |_) | |/ _` | | | |/ _ \ '__| |   / _ \| | | | '_ \| __/ _ \ '__|
+# | |  | | |_| | | |_| |  __/| | (_| | |_| |  __/ |  | |__| (_) | |_| | | | | ||  __/ |   
+# |_|  |_|\__,_|_|\__|_|_|   |_|\__,_|\__, |\___|_|   \____\___/ \__,_|_| |_|\__\___|_|   
+#                                     |___/                                                
+#                                                                                          
+#Config Main of MultiPlayerCounter
 #Time in seconds
 update-players-interval: 30
 
@@ -24,3 +28,17 @@ servers-to-query:
 - "127.0.0.1:19134"
 ...
 ```
+
+# Contacts
+**You can contact me directly through the platforms listed below**
+| Platform | JeroGamingYT             |
+| :------: | :----------------: |
+| Discord  | Jero Gaming#6805        |
+| Email    | JeroGamingYT@pm.me       |
+
+## Project Infomation
+
+| Plugin Version | Pocketmine API | PHP Version | Plugin Status |
+|---|---|---|---|
+| 0.0.1 | 4.x.x | 8.0 | Completed |
+ 
