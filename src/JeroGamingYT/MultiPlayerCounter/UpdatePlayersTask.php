@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace JeroGamingYT\MultiPlayerCounter;
 
-use JeroGamingYT\MultiPlayerCounter\libs\libpmquery\PMQuery;
-use JeroGamingYT\MultiPlayerCounter\libs\libpmquery\PmQueryException;
+use libpmquery\PMQuery;
+use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use function explode;
