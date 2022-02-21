@@ -7,6 +7,6 @@ projects:
     icon: icon.png
     path: ""
     libs:
-    - src: libpmquery/PMQuery
+    - src: jasonwynn10/libpmquery/PMQuery
       version: "0.1.0"
 ...
