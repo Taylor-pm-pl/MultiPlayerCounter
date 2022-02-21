@@ -8,5 +8,5 @@ projects:
     path: ""
     libs:
     - src: libpmquery/PMQuery
-      version: 0.1.0
+      version: ^0.1.0
 ...
