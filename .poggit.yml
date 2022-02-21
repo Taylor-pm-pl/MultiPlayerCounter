@@ -9,4 +9,6 @@ projects:
     libs:
       - src: jasonwynn10/libpmquery/libpmquery
         version: ^0.0.1
+    lint:
+      phpstan: false
 ...
