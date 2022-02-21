@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace JeroGamingYT\MultiPlayerCounter;
 
-use JeroGamingYT\MultiPlayerCounter\libs\libpmquery\PMQuery;
+use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\plugin\PluginBase;
