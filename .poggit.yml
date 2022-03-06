@@ -1,7 +1,8 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/JeroGamingYT-pm-pl/MultiPlayerCounter
 build-by-default: true
 branches:
-- main
+- stable
+- PM4
 projects:
   MultiPlayerCounter:
     icon: icon.png
