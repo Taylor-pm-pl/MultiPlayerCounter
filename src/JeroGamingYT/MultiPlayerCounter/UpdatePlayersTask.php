@@ -62,5 +62,4 @@ class UpdatePlayersTask extends AsyncTask{
             $plugin->setCachedMaxPlayers($res['maxPlayers']);
         }
     }
-
 }
