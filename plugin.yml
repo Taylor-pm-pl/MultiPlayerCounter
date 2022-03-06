@@ -4,3 +4,14 @@ api: 4.0.0
 version: 0.0.2
 author: JeroGamingYT
 website: https://github.com/JeroGamingYT
+
+commands:
+  multiplayercounter:
+    permission: multiplayercounter.command
+    description: "MultiPlayerCounter Command"
+    aliases: ['mpc']
+    
+permissions:
+  multiplayercounter.command:
+    description: "MultiPlayerCounter Command"
+    default: op
