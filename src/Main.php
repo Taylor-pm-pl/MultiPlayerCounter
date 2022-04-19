@@ -2,16 +2,16 @@
 
 /**
  * MultiPlayerCounter plugin for PocketMine-MP
- * Copyright (C) 2022 JeroGamingYT <https://github.com/JeroGamingYT>
+ * Copyright (C) 2022 DavidGlitch04 <https://github.com/DavidGlitch04>
  *
- * KeepInventory is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
+ * MultiPlayerCounter is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  */
  
 declare(strict_types=1);
 
-namespace JeroGamingYT\MultiPlayerCounter;
+namespace davidglitch04\MultiPlayerCounter;
 
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
@@ -23,10 +23,10 @@ use function count;
 class Main extends PluginBase implements Listener{
 
     /** @var int */
-    private $cachedPlayers;
+    private $cachedPlayers = 0;
 
     /** @var int */
-    private $cachedMaxPlayers;
+    private $cachedMaxPlayers = 0;
 
     public function onEnable() : void
 	{
@@ -35,14 +35,8 @@ class Main extends PluginBase implements Listener{
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
-
-        $this->cachedPlayers = 0;
-        $this->cachedMaxPlayers = 0;
-
         $this->saveDefaultConfig();
-
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
-
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 

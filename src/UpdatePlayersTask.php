@@ -2,16 +2,16 @@
 
 /**
  * MultiPlayerCounter plugin for PocketMine-MP
- * Copyright (C) 2022 JeroGamingYT <https://github.com/JeroGamingYT>
+ * Copyright (C) 2022 DavidGlitch04 <https://github.com/DavidGlitch04>
  *
- * KeepInventory is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
+ * MultiPlayerCounter is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  */
  
 declare(strict_types=1);
 
-namespace JeroGamingYT\MultiPlayerCounter;
+namespace davidglitch04\MultiPlayerCounter;
 
 use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
@@ -55,9 +55,8 @@ class UpdatePlayersTask extends AsyncTask{
         foreach($res['errors'] as $e){
             $server->getLogger()->warning($e);
         }
-        $plugin = $server->getPluginManager()->getPlugin('MultiPlayerCounter');
-        if($plugin !== null && $plugin->isEnabled()){
-            /** @var $plugin Main */
+        $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
+        if($plugin instanceof Main){
             $plugin->setCachedPlayers($res['count']);
             $plugin->setCachedMaxPlayers($res['maxPlayers']);
         }
