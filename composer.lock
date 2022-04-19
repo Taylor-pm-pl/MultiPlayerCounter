@@ -154,7 +154,7 @@
             },
             "time": "2021-11-21T08:13:35+00:00"
         },
-		{
+	    	{
             "name": "jasonwynn10/libpmquery",
             "version": "dev-master",
             "source": {
