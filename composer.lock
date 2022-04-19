@@ -155,17 +155,17 @@
             "time": "2021-11-21T08:13:35+00:00"
         },
 		{
-            "name": "jasonwynn10/libpmquery",
+            "name": "DavidGlitch04/libpmquery",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jasonwynn10/libpmquery.git",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca"
+                "url": "https://github.com/DavidGlitch04/libpmquery.git",
+                "reference": "40c82ed6314978d3d90fa94ba0a0a3a6d50dafbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasonwynn10/libpmquery/zipball/465e0129d4847bf2c8df66c001b6f90225c1c8ca",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca",
+                "url": "https://api.github.com/repos/DavidGlitch04/libpmquery/zipball/40c82ed6314978d3d90fa94ba0a0a3a6d50dafbb",
+                "reference": "40c82ed6314978d3d90fa94ba0a0a3a6d50dafbb",
                 "shasum": ""
             },
             "type": "library",
