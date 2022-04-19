@@ -8,10 +8,7 @@
    ],
    "require": {
         "php": "^8.0",
-        "phpstan/phpstan": "^1.4.6",
-        "pocketmine/pocketmine-mp": "^4.0.0",
-        "phpstan/phpstan-strict-rules": "^1.0",
-        "phpstan/extension-installer": "^1.0"
+        "phpstan/phpstan": "^1.4.6"
     },
    "readme": "../README.md",
    "homepage": "https://github.com/david-pm-pl",
