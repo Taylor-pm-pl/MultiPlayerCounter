@@ -156,7 +156,7 @@
         },
 		{
             "name": "jasonwynn10/libpmquery",
-            "version": "dev-PM4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jasonwynn10/libpmquery.git",
@@ -180,12 +180,12 @@
             "license": [
                 "LGPL-3.0-only"
             ],
-            "description": "A Command Framework virion for PocketMine-MP ",
+            "description": "A PocketMine Virion which allows plugins to query other servers for information ",
             "support": {
-                "issues": "https://github.com/CortexPE/Commando/issues",
-                "source": "https://github.com/CortexPE/Commando/tree/PM4"
+                "issues": "https://github.com/jasonwynn10/libpmquery/issues",
+                "source": "https://github.com/jasonwynn10/libpmquery/tree/PM4"
             },
-            "time": "2021-11-21T08:13:35+00:00"
+            "time": "2022-04-21T08:13:35+00:00"
         },
         {
             "name": "fgrosse/phpasn1",
