@@ -3,12 +3,7 @@
    "description": "A pocketmine-mp plugin that combines online players counts of multiple servers.",
    "type": "project",
    "require": {
-        "php": "^8.0",
-        "jasonwynn10/libpmquery": "dev-master",
-        "phpstan/phpstan": "^1.4.6",
-        "pocketmine/pocketmine-mp": "^4.0.0",
-        "phpstan/phpstan-strict-rules": "^1.0",
-        "phpstan/extension-installer": "^1.0"
+        "jasonwynn10/libpmquery": "dev-master"
     },
    "keywords": [
       "multiplayercounter",
