@@ -8,7 +8,7 @@
    ],
    "require": {
         "phpstan/phpstan": "1.4.10",
-		"jasonwynn10/libpmquery": "0.1.0",
+	"jasonwynn10/libpmquery": "0.1.0",
         "phpstan/phpstan-strict-rules": "1.1.0",
         "phpstan/extension-installer": "1.1.0",
         "pocketmine/pocketmine-mp": "4.2.4"
