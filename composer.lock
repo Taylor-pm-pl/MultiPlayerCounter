@@ -154,38 +154,6 @@
             },
             "time": "2021-11-21T08:13:35+00:00"
         },
-	    	{
-            "name": "jasonwynn10/libpmquery",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jasonwynn10/libpmquery.git",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jasonwynn10/libpmquery/zipball/465e0129d4847bf2c8df66c001b6f90225c1c8ca",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "libpmquery": [
-                        "src\\libpmquery\\"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0-only"
-            ],
-            "description": "A PocketMine Virion which allows plugins to query other servers for information ",
-            "support": {
-                "issues": "https://github.com/jasonwynn10/libpmquery/issues",
-                "source": "https://github.com/jasonwynn10/libpmquery/tree/PM4"
-            }
-        },
         {
             "name": "fgrosse/phpasn1",
             "version": "v2.4.0",
