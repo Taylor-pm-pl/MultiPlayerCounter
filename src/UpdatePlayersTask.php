@@ -17,7 +17,6 @@ use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
-use \Threaded;
 use function explode;
 use function json_decode;
 use function json_encode;
@@ -25,8 +24,8 @@ use function json_encode;
 class UpdatePlayersTask extends AsyncTask{
 
     /** @var string */
-    private $serversData;
-
+    private string $serversData;
+	/* @phpstan-ignore-line */
     public function __construct(array $serversConfig){
         $this->serversData = json_encode($serversConfig, JSON_THROW_ON_ERROR);
     }
