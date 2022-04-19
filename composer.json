@@ -1,0 +1,50 @@
+{
+   "name": "davidglitch04/multiplayercounter",
+   "description": "A pocketmine-mp plugin that combines online players counts of multiple servers.",
+   "type": "project",
+   "keywords": [
+      "multiplayercounter",
+      "pocketmine-mp"
+   ],
+   "require": {
+        "phpstan/phpstan": "1.4.10",
+		"jasonwynn10/libpmquery": "0.1.0",
+        "phpstan/phpstan-strict-rules": "1.1.0",
+        "phpstan/extension-installer": "1.1.0",
+        "pocketmine/pocketmine-mp": "4.2.4"
+    },
+   "readme": "../README.md",
+   "homepage": "https://github.com/david-pm-pl",
+   "time": "2022-18-04 07:22",
+   "license": "GPL-3.0-only",
+   "authors": [
+        {
+            "name": "YTBJero",
+            "email": "nguyenhieucoder47@gmail.com",
+            "homepage": "https://github.com/DavidGlitch04",
+            "role": "Developer"
+        }
+    ],
+   "support": {
+      "email": "nguyenhieucoder47@gmail.com",
+      "issues": "https://github.com/david-pm-pl/MultiPlayerCounter/issues",
+      "wiki": "https://github.com/david-pm-pl/MultiPlayerCounter/wiki",
+      "source": "https://github.com/david-pm-pl/MultiPlayerCounter"
+   },
+   "funding": [
+      {
+         "type": "patreon",
+         "url": "https://www.patreon.com/Ericpmpl"
+      }
+   ],
+   "autoload": {
+      "psr-0": {
+         "": "../src"
+      }
+   },
+   "config": {
+      "allow-plugins": {
+         "phpstan/extension-installer": true
+      }
+   }
+}
