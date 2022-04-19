@@ -156,7 +156,7 @@
         },
 		{
             "name": "jasonwynn10/libpmquery",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jasonwynn10/libpmquery.git",
