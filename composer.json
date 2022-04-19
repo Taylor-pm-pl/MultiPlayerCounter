@@ -2,9 +2,6 @@
    "name": "davidglitch04/multiplayercounter",
    "description": "A pocketmine-mp plugin that combines online players counts of multiple servers.",
    "type": "project",
-   "require": {
-        "jasonwynn10/libpmquery": "dev-master"
-    },
    "keywords": [
       "multiplayercounter",
       "pocketmine-mp"
