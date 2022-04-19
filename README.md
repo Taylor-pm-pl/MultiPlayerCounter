@@ -1,4 +1,5 @@
 [![](https://poggit.pmmp.io/shield.state/MultiPlayerCounter)]
+[![Discord](https://img.shields.io/discord/942248186670641202.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/34PC5u9W)
 <div align="center">
 <h1>MultiPlayerCounter| v0.0.1<h1>
 <p>Combine players of multiple servers.</p>
@@ -33,12 +34,6 @@ servers-to-query:
 **You can contact me directly through the platforms listed below**
 | Platform | JeroGamingYT             |
 | :------: | :----------------: |
-| Discord  | Jero Gaming#6805        |
+| Discord  | DavidGlitch04#0001        |
 | Email    | JeroGamingYT@pm.me       |
-
-## Project Infomation
-
-| Plugin Version | Pocketmine API | PHP Version | Plugin Status |
-|---|---|---|---|
-| 0.0.1 | 4.x.x | 8.0 | Completed |
  
