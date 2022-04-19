@@ -7,7 +7,7 @@
       "pocketmine-mp"
    ],
    "require": {
-	"jasonwynn10/libpmquery": "dev-master",
+	"jasonwynn/libpmquery": "dev-master",
         "phpstan/phpstan": "1.4.10",
         "phpstan/phpstan-strict-rules": "1.1.0",
         "phpstan/extension-installer": "1.1.0",
