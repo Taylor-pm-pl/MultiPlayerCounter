@@ -5,3 +5,7 @@ api: 4.0.0
 version: 0.0.3
 author: DavidGlitch04
 website: https://github.com/DavidGlitch04
+load: STARTUP
+description: "A PocketMine-MP plugin that combines online players counts of multiple servers."
+extensions:
+  core: ">=8.0"
