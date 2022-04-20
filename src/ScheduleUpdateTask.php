@@ -33,7 +33,7 @@ class ScheduleUpdateTask extends Task{
         $servers = (array)$this->plugin->getConfig()->get('servers-to-query', []);
         $array = [];
         foreach ($servers as $info){
-            $array[] = new ServerInfo($info);
+            $array[] = new ServerInfo(strval($info));
         }
         $this->plugin->getServer()->getAsyncPool()->submitTask(new UpdatePlayersTask($array));
     }

@@ -38,17 +38,19 @@ class UpdatePlayersTask extends AsyncTask{
     public function onRun() : void{
         $res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
         $serversConfig = (array)unserialize(utf8_decode($this->serversData));
-        foreach($serversConfig as $serverinfo){
-            $ip = $serverinfo->getIp();
-            $port = $serverinfo->getPort();
-            try{
-                $qData = PMQuery::query($ip, $port);
-            }catch(PmQueryException $e){
-                $res['errors'][] = 'Failed to query '.$serverinfo->toString().': '.$e->getMessage();
-                continue;
+        foreach ($serversConfig as $serverinfo){
+            if ($serverinfo instanceof ServerInfo){
+                $ip = $serverinfo->getIp();
+                $port = $serverinfo->getPort();
+                try {
+                    $qData = PMQuery::query($ip, $port);
+                }catch (PmQueryException $e){
+                    $res['errors'][] = 'Failed to query '.$serverinfo->toString().': '.$e->getMessage();
+                    continue;
+                }
+                $res['count'] += $qData['Players'];
+                $res['maxPlayers'] += $qData['MaxPlayers'];
             }
-            $res['count'] += $qData['Players'];
-            $res['maxPlayers'] += $qData['MaxPlayers'];
         }
         $this->setResult($res);
     }
