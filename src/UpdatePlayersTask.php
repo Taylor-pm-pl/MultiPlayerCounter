@@ -18,6 +18,8 @@ use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use function explode;
+use function strval;
+use function intval;
 use function json_decode;
 use function json_encode;
 
@@ -25,8 +27,7 @@ class UpdatePlayersTask extends AsyncTask{
 
     /** @var string */
     private string $serversData;
-	/* @phpstan-ignore-line */
-    public function __construct(array $serversConfig){
+    public function __construct(array $serversConfig){/* @phpstan-ignore-line */
         $this->serversData = json_encode($serversConfig, JSON_THROW_ON_ERROR);
     }
 
@@ -52,13 +53,13 @@ class UpdatePlayersTask extends AsyncTask{
     public function onCompletion() : void{
         $res = $this->getResult();
 		$server = Server::getInstance();
-        foreach($res['errors'] as $e){
-            $server->getLogger()->warning($e);
+        foreach((array) $res['errors'] as $e){
+            $server->getLogger()->warning(strval($e));
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
         if($plugin instanceof Main){
-            $plugin->setCachedPlayers($res['count']);
-            $plugin->setCachedMaxPlayers($res['maxPlayers']);
+            $plugin->setCachedPlayers(intval((array)$res['count']));
+            $plugin->setCachedMaxPlayers(intval((array)$res['maxPlayers']));
         }
     }
 }
