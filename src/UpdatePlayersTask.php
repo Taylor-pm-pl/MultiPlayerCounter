@@ -17,12 +17,12 @@ use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
-use function explode;
-use function strval;
-use function intval;
 use function array_values;
+use function explode;
+use function intval;
 use function json_decode;
 use function json_encode;
+use function strval;
 
 class UpdatePlayersTask extends AsyncTask{
 
@@ -55,7 +55,7 @@ class UpdatePlayersTask extends AsyncTask{
         $res = $this->getResult();
 	$server = Server::getInstance();
 	$res = (array)$res;
-        foreach($res['errors'] as $e){
+        foreach((array($res['errors'])) as $e){
             $server->getLogger()->warning(strval($e));
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
