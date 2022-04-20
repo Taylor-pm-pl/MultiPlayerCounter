@@ -9,3 +9,8 @@ load: STARTUP
 description: "A PocketMine-MP plugin that combines online players counts of multiple servers."
 extensions:
   core: ">=8.0"
+
+permissions:
+  multiplayercount.allow.command:
+    default: op
+    description: "Allow player to use /multiplayercount command"

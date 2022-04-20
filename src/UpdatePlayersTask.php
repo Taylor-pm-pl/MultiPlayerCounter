@@ -17,13 +17,17 @@ use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
-use function array_values;
 use function explode;
 use function intval;
 use function json_decode;
 use function json_encode;
+use function Ramsey\Uuid\v1;
 use function strval;
 
+/**
+ * Class UpdatePlayersTask
+ * @package davidglitch04\MultiPlayerCounter
+ */
 class UpdatePlayersTask extends AsyncTask{
 
     /** @var string */
@@ -52,16 +56,16 @@ class UpdatePlayersTask extends AsyncTask{
     }
 
     public function onCompletion() : void{
-        $res = $this->getResult();
-	$server = Server::getInstance();
-	$res = (array)$res;
-        foreach((array($res['errors'])) as $e){
+	    $server = Server::getInstance();
+        /** @var array $res */
+	    $res = (array)$this->getResult();
+        foreach($res['errors'] as $e){
             $server->getLogger()->warning(strval($e));
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
         if($plugin instanceof Main){
-            $plugin->setCachedPlayers(intval($res));
-            $plugin->setCachedMaxPlayers(intval($res));
+            $plugin->setCachedPlayers(intval($res['count']));
+            $plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
         }
     }
 }

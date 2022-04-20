@@ -16,6 +16,10 @@ namespace davidglitch04\MultiPlayerCounter;
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
 
+/**
+ * Class ScheduleUpdateTask
+ * @package davidglitch04\MultiPlayerCounter
+ */
 class ScheduleUpdateTask extends Task{
 
     /** @var Main */
