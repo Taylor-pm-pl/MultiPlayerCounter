@@ -26,6 +26,7 @@ class ScheduleUpdateTask extends Task{
     }
 
     public function onRun() : void{
-        $this->plugin->getServer()->getAsyncPool()->submitTask(new UpdatePlayersTask($this->plugin->getConfig()->get('servers-to-query')));
+        $servers = (array)$this->plugin->getConfig()->get('servers-to-query');
+        $this->plugin->getServer()->getAsyncPool()->submitTask(new UpdatePlayersTask($servers));
     }
 }
