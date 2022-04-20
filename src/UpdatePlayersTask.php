@@ -34,7 +34,7 @@ class UpdatePlayersTask extends AsyncTask{
 
     public function onRun() : void{
         $res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
-        $serversConfig = json_decode($this->serversData, true, 512, JSON_THROW_ON_ERROR);
+        $serversConfig = (array)json_decode($this->serversData, true, 512, JSON_THROW_ON_ERROR);
         foreach($serversConfig as $serverConfigString){
             $serverData = explode(':', strval($serverConfigString));
             $ip = $serverData[0];
@@ -54,12 +54,12 @@ class UpdatePlayersTask extends AsyncTask{
     public function onCompletion() : void{
         $res = $this->getResult();
 	$server = Server::getInstance();
-        foreach((array) $res['errors'] as $e){
+	$res = (array)$res;
+        foreach($res['errors'] as $e){
             $server->getLogger()->warning(strval($e));
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
         if($plugin instanceof Main){
-	    $res = (array)$res;
             $plugin->setCachedPlayers(intval($res));
             $plugin->setCachedMaxPlayers(intval($res));
         }
