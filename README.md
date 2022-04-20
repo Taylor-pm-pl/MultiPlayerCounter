@@ -1,8 +1,10 @@
-[![](https://poggit.pmmp.io/shield.state/MultiPlayerCounter)]
+<h1>MultiPlayerCounter<img src="assets/images/icon.png" height="64" width="64" align="left"></img></h1><br/>
+
+[![Lint](https://poggit.pmmp.io/ci.shield/David-pm-pl/MultiPlayerCounter/MultiPlayerCounter)](https://poggit.pmmp.io/ci/David-pm-pl/MultiPlayerCounter/MultiPlayerCounter)
+[![PHPStan](https://github.com/david-pm-pl/MultiPlayerCounter/actions/workflows/php.yml/badge.svg)](https://github.com/david-pm-pl/MultiPlayerCounter/actions/workflows/php.yml/badge.svg)
 [![Discord](https://img.shields.io/discord/942248186670641202.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/34PC5u9W)
-<div align="center">
-<h1>MultiPlayerCounter| v0.0.1<h1>
-<p>Combine players of multiple servers.</p>
+
+✨ **Combine players of multiple servers**
 </div>
 
 ## Features
