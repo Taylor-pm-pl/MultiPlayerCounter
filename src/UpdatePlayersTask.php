@@ -21,7 +21,6 @@ use function explode;
 use function intval;
 use function json_decode;
 use function json_encode;
-use function Ramsey\Uuid\v1;
 use function strval;
 
 /**
@@ -30,23 +29,22 @@ use function strval;
  */
 class UpdatePlayersTask extends AsyncTask{
 
-    /** @var string */
+    /** @var string $serverData */
     private string $serversData;
-    public function __construct(array $serversConfig){/* @phpstan-ignore-line */
-        $this->serversData = json_encode($serversConfig, JSON_THROW_ON_ERROR);
+    public function __construct(array $servers){/* @phpstan-ignore-line */
+        $this->serversData = utf8_encode(serialize($servers));
     }
 
     public function onRun() : void{
         $res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
-        $serversConfig = (array)json_decode($this->serversData, true, 512, JSON_THROW_ON_ERROR);
-        foreach($serversConfig as $serverConfigString){
-            $serverData = explode(':', strval($serverConfigString));
-            $ip = $serverData[0];
-            $port = (int) $serverData[1];
+        $serversConfig = (array)unserialize(utf8_decode($this->serversData));
+        foreach($serversConfig as $serverinfo){
+            $ip = $serverinfo->getIp();
+            $port = $serverinfo->getPort();
             try{
                 $qData = PMQuery::query($ip, $port);
             }catch(PmQueryException $e){
-                $res['errors'][] = 'Failed to query '.$serverConfigString.': '.$e->getMessage();
+                $res['errors'][] = 'Failed to query '.$serverinfo->toString().': '.$e->getMessage();
                 continue;
             }
             $res['count'] += $qData['Players'];

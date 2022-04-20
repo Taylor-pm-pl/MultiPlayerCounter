@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
+use davidglitch04\MultiPlayerCounter\command\MPCCommand;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
