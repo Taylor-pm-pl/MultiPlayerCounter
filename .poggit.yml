@@ -5,7 +5,7 @@ branches:
 - PM4
 projects:
   MultiPlayerCounter:
-    icon: icon.png
+    icon: "assets/images/icon.png"
     path: ""
     libs:
       - src: jasonwynn10/libpmquery/libpmquery
