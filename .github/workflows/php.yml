@@ -41,6 +41,9 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           install-path: "./bin"
+          
+      - name: Update Composer
+        run: composer update
 
       - name: Install Composer
         run: curl -sS https://getcomposer.org/installer | php
