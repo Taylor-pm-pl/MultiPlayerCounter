@@ -2,10 +2,14 @@
 
 namespace davidglitch04\MultiPlayerCounter;
 
+use function explode;
+use function intval;
+use function strval;
+
 class ServerInfo {
-
+    /**@var string $ip */
     protected string $ip;
-
+    /**@var int $port */
     protected int $port;
 
     public function __construct(string $data)

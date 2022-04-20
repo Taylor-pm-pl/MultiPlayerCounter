@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace davidglitch04\MultiPlayerCounter;
 
 use pocketmine\scheduler\Task;
-use pocketmine\Server;
+use function strval;
 
 /**
  * Class ScheduleUpdateTask
@@ -22,8 +22,8 @@ use pocketmine\Server;
  */
 class ScheduleUpdateTask extends Task{
 
-    /** @var Main */
-    private $plugin;
+    /** @var Main $plugin */
+    private Main $plugin;
 
     public function __construct(Main $plugin){
         $this->plugin = $plugin;

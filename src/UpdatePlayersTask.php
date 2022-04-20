@@ -17,10 +17,11 @@ use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
-use function explode;
 use function intval;
-use function json_decode;
-use function json_encode;
+use function utf8_decode;
+use function utf8_encode;
+use function serialize;
+use function unserialize;
 use function strval;
 
 /**
@@ -31,7 +32,8 @@ class UpdatePlayersTask extends AsyncTask{
 
     /** @var string $serverData */
     private string $serversData;
-    public function __construct(array $servers){/* @phpstan-ignore-line */
+
+    public function __construct(?array $servers){/* @phpstan-ignore-line */
         $this->serversData = utf8_encode(serialize($servers));
     }
 

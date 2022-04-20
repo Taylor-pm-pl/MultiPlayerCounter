@@ -27,10 +27,10 @@ use function count;
  */
 class Main extends PluginBase implements Listener{
 
-    /** @var int */
+    /** @var int $cachedPlayers */
     private int $cachedPlayers = 0;
 
-    /** @var int */
+    /** @var int $cachedMaxPlayers */
     private int $cachedMaxPlayers = 0;
 
     public function onEnable() : void
