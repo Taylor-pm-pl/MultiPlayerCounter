@@ -52,16 +52,16 @@ class UpdatePlayersTask extends AsyncTask{
     }
 
     public function onCompletion() : void{
-	/** @var array|string|int $res */
         $res = $this->getResult();
 	$server = Server::getInstance();
-        foreach(array($res['errors']) as $e){
-            $server->getLogger()->warning($e);
+	$res = (array)$res;
+        foreach((array($res['errors'])) as $e){
+            $server->getLogger()->warning(strval($e));
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
         if($plugin instanceof Main){
-            $plugin->setCachedPlayers($res);
-            $plugin->setCachedMaxPlayers($res);
+            $plugin->setCachedPlayers(intval($res));
+            $plugin->setCachedMaxPlayers(intval($res));
         }
     }
 }
