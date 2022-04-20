@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use davidglitch04\MultiPlayerCounter\command\MPCCommand;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
@@ -42,7 +41,6 @@ class Main extends PluginBase implements Listener{
         }
         $this->saveDefaultConfig();
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
-        $this->getServer()->getCommandMap()->register("multiplayercount", new MPCCommand($this, "multiplayercount", "MultiPlayerCount Control", ["mpc"]));
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 

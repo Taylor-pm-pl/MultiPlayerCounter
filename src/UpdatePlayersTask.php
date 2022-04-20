@@ -57,7 +57,7 @@ class UpdatePlayersTask extends AsyncTask{
 
     public function onCompletion() : void{
 	    $server = Server::getInstance();
-        /** @var array $res */
+        /**@var array $res */
 	    $res = (array)$this->getResult();
         foreach($res['errors'] as $e){
             $server->getLogger()->warning(strval($e));
