@@ -20,6 +20,7 @@ use pocketmine\Server;
 use function explode;
 use function strval;
 use function intval;
+use function array_values;
 use function json_decode;
 use function json_encode;
 
@@ -35,7 +36,7 @@ class UpdatePlayersTask extends AsyncTask{
         $res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
         $serversConfig = json_decode($this->serversData, true, 512, JSON_THROW_ON_ERROR);
         foreach($serversConfig as $serverConfigString){
-            $serverData = explode(':', $serverConfigString);
+            $serverData = explode(':', strval($serverConfigString));
             $ip = $serverData[0];
             $port = (int) $serverData[1];
             try{
@@ -58,8 +59,8 @@ class UpdatePlayersTask extends AsyncTask{
         }
         $plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
         if($plugin instanceof Main){
-            $plugin->setCachedPlayers(intval((array)$res['count']));
-            $plugin->setCachedMaxPlayers(intval((array)$res['maxPlayers']));
+            $plugin->setCachedPlayers(intval(array_values($res['count'])));
+            $plugin->setCachedMaxPlayers(intval(array_values($res['maxPlayers'])));
         }
     }
 }
