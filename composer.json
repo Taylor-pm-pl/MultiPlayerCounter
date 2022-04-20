@@ -9,7 +9,7 @@
    "require": {
 	"jasonwynn10/libpmquery": "dev-master",
         "phpstan/extension-installer": "1.1.0",
-        "pocketmine/pocketmine-mp": "4.2.9",
+        "pocketmine/pocketmine-mp": "4.2.4",
 	"php": "^8.0",
        	"php-64bit": "*",
        	"ext-chunkutils2": "^0.3.1",
