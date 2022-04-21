@@ -32,7 +32,9 @@ class ServerInfo {
     public function toString(): string{
         return $this->ip.":".$this->port;
     }
-	
+	/**
+     * @return array<array>
+     */
 	public function getInfo(): array{
 		try {
 			$qData = PMQuery::query($this->getIp(), $this->getPort());
