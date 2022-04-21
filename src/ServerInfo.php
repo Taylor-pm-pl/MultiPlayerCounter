@@ -36,6 +36,7 @@ class ServerInfo {
 	public function getInfo(): array{
 		try {
 			$qData = PMQuery::query($this->getIp(), $this->getPort());
+			/** @var array $array */
 			$array = [
 				"Status" => "online", 
 				"Players" => $qData['Players'],
@@ -43,6 +44,7 @@ class ServerInfo {
 			];
 			return $array;
         }catch (PmQueryException $e){
+			/** @var array $false */
 			$false = [
 				"Status" => "offline", 
 				"error" => "Failed to query ".$this->toString().": ".$e->getMessage()
