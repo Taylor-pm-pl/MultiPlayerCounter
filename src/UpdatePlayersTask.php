@@ -31,7 +31,7 @@ class UpdatePlayersTask extends AsyncTask{
     /** @var string $serverData */
     private string $serversData;
 	/**
-	* @param array $servers
+	* @param array<int, object> $servers
 	*/
     public function __construct(array $servers){
         $this->serversData = utf8_encode(serialize($servers));
