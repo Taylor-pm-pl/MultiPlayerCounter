@@ -2,6 +2,8 @@
 
 namespace davidglitch04\MultiPlayerCounter;
 
+use libpmquery\PMQuery;
+use libpmquery\PmQueryException;
 use function explode;
 use function intval;
 use function strval;
@@ -30,4 +32,22 @@ class ServerInfo {
     public function toString(): string{
         return $this->ip.":".$this->port;
     }
+	
+	public function getInfo(): array{
+		try {
+			$qData = PMQuery::query($this->getIp(), $this->getPort());
+			$array = [
+				"Status" => "online", 
+				"Players" => $qData['Players'],
+				"Max" => $qData['MaxPlayers']
+			];
+			return $array;
+        }catch (PmQueryException $e){
+			$false = [
+				"Status" => "offline", 
+				"error" => "Failed to query ".$this->toString().": ".$e->getMessage()
+			];
+            return $false;
+        }
+	}
 }

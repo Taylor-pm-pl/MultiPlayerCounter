@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use libpmquery\PMQuery;
-use libpmquery\PmQueryException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use function intval;
@@ -33,7 +31,7 @@ class UpdatePlayersTask extends AsyncTask{
     /** @var string $serverData */
     private string $serversData;
 
-    public function __construct(?array $servers){/* @phpstan-ignore-line */
+    public function __construct(?array $servers){
         $this->serversData = utf8_encode(serialize($servers));
     }
 
@@ -44,14 +42,13 @@ class UpdatePlayersTask extends AsyncTask{
             if ($serverinfo instanceof ServerInfo){
                 $ip = $serverinfo->getIp();
                 $port = $serverinfo->getPort();
-                try {
-                    $qData = PMQuery::query($ip, $port);
-                }catch (PmQueryException $e){
-                    $res['errors'][] = 'Failed to query '.$serverinfo->toString().': '.$e->getMessage();
-                    continue;
-                }
-                $res['count'] += $qData['Players'];
-                $res['maxPlayers'] += $qData['MaxPlayers'];
+				$status = $serverinfo->getInfo();
+                if($status["Status"] == "online"){
+					$res['count'] += $status["Players"];
+					$res['maxPlayers'] += $status["Max"];
+				} elseif ($status["Status"] == "offline"){
+					$res['errors'][] = $status["error"];
+				}
             }
         }
         $this->setResult($res);
