@@ -33,7 +33,7 @@ class ServerInfo {
         return $this->ip.":".$this->port;
     }
 	/**
-     * @return array<array>
+     * @return array<string, int|string>
      */
 	public function getInfo(): array{
 		try {
