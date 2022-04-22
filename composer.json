@@ -10,7 +10,7 @@
 	   "jasonwynn10/libpmquery": "dev-master",
       "cortexpe/commando": "dev-PM4",
       "phpstan/extension-installer": "1.1.0",
-      "pocketmine/pocketmine-mp": "4.2.4",
+      "pocketmine/pocketmine-mp": "4.2.9",
 	   "php": "^8.0",
     	"php-64bit": "*",
    	"ext-chunkutils2": "^0.3.1",
