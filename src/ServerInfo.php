@@ -32,26 +32,26 @@ class ServerInfo {
     public function toString(): string{
         return $this->ip.":".$this->port;
     }
-	/**
+    /**
      * @return array<string, int|string>
      */
-	public function getInfo(): array{
-		try {
-		    $qData = PMQuery::query($this->getIp(), $this->getPort());
-			/**@var array $array */
-	    	    $array = [
-		    	    "Status" => "online", 
-		    	    "Players" => $qData['Players'],
-		    	    "Max" => $qData['MaxPlayers']
-	    	    ];
-	    	    return $array;
-        	}catch (PmQueryException $e){
-		    /**@var array $false */
-		    $false = [
-			    "Status" => "offline", 
-			    "error" => "Failed to query ".$this->toString().": ".$e->getMessage()
-		    ];
-            	    return $false;
-        	}
-	}
+    public function getInfo(): array{
+	try {
+	    $qData = PMQuery::query($this->getIp(), $this->getPort());
+	    /**@var array $array */
+	    $array = [
+		    "Status" => "online", 
+		    "Players" => $qData['Players'],
+		    "Max" => $qData['MaxPlayers']
+	    ];
+	    return $array;
+        }catch (PmQueryException $e){
+	    /**@var array $false */
+	    $false = [
+		    "Status" => "offline", 
+		    "error" => "Failed to query ".$this->toString().": ".$e->getMessage()
+	    ];
+            return $false;
+         }
+    }
 }
