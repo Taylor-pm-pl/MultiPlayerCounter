@@ -11,12 +11,10 @@
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use davidglitch04\MultiPlayerCounter\updater\GetUpdateInfo;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\SingletonTrait;
 use function class_exists;
 use function count;
 
@@ -26,8 +24,6 @@ use function count;
  */
 class Main extends PluginBase implements Listener {
 
-    use SingletonTrait;
-
     /** @var int $cachedPlayers */
     private int $cachedPlayers = 0;
 
@@ -36,14 +32,12 @@ class Main extends PluginBase implements Listener {
 
     public function onEnable() : void
 	{
-        Main::setInstance($this);
         if(!class_exists(PMQuery::class)){
             $this->getLogger()->error('Missing library cannot dynamically type plugin!');
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
         $this->saveDefaultConfig();
-        $this->checkUpdater();
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
