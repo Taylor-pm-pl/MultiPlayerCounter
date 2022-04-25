@@ -8,16 +8,15 @@
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  */
- 
-declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use davidglitch04\MultiPlayerCounter\command\MPCCommand;
+use davidglitch04\MultiPlayerCounter\updater\GetUpdateInfo;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\SingletonTrait;
 use function class_exists;
 use function count;
 
@@ -25,7 +24,9 @@ use function count;
  * Class Main
  * @package davidglitch04\MultiPlayerCounter
  */
-class Main extends PluginBase implements Listener{
+class Main extends PluginBase implements Listener {
+
+    use SingletonTrait;
 
     /** @var int $cachedPlayers */
     private int $cachedPlayers = 0;
@@ -35,33 +36,43 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable() : void
 	{
+        $this->setInstance($this);
         if(!class_exists(PMQuery::class)){
             $this->getLogger()->error('Missing library cannot dynamically type plugin!');
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
         $this->saveDefaultConfig();
+        $this->checkUpdater();
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-    public function getCachedPlayers() : int{
+    public function getFileHack(): string{
+        return $this->getFile();
+    }
+
+    protected function checkUpdater() : void {
+        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/David-pm-pl/MultiPlayerCounter/stable/poggit_news.json"));
+    }
+
+    public function getCachedPlayers() : int {
         return $this->cachedPlayers;
     }
 
-    public function setCachedPlayers(int $cachedPlayers) : void{
+    public function setCachedPlayers(int $cachedPlayers) : void {
         $this->cachedPlayers = $cachedPlayers;
     }
 
-    public function getCachedMaxPlayers() : int{
+    public function getCachedMaxPlayers() : int {
         return $this->cachedMaxPlayers;
     }
 
-    public function setCachedMaxPlayers(int $maxPlayers) : void{
+    public function setCachedMaxPlayers(int $maxPlayers) : void {
         $this->cachedMaxPlayers = $maxPlayers;
     }
 
-    public function queryRegenerate(QueryRegenerateEvent $event) : void{
+    public function queryRegenerate(QueryRegenerateEvent $event) : void {
         $event->getQueryInfo()->setPlayerCount($this->cachedPlayers + count($this->getServer()->getOnlinePlayers()));
         $event->getQueryInfo()->setMaxPlayerCount($this->cachedMaxPlayers + $this->getServer()->getMaxPlayers());
     }

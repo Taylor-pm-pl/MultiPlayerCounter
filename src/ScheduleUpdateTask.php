@@ -8,8 +8,6 @@
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  */
- 
-declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
@@ -20,16 +18,16 @@ use function strval;
  * Class ScheduleUpdateTask
  * @package davidglitch04\MultiPlayerCounter
  */
-class ScheduleUpdateTask extends Task{
-
+class ScheduleUpdateTask extends Task {
+ 
     /** @var Main $plugin */
     private Main $plugin;
 
-    public function __construct(Main $plugin){
+    public function __construct(Main $plugin) {
         $this->plugin = $plugin;
     }
 
-    public function onRun() : void{
+    public function onRun() : void {
         $servers = (array)$this->plugin->getConfig()->get('servers-to-query', []);
         $array = [];
         foreach ($servers as $info){

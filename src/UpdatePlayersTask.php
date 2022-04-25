@@ -8,8 +8,6 @@
  *
  * GNU General Public License <https://www.gnu.org/licenses/>
  */
- 
-declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
@@ -26,18 +24,18 @@ use function strval;
  * Class UpdatePlayersTask
  * @package davidglitch04\MultiPlayerCounter
  */
-class UpdatePlayersTask extends AsyncTask{
+class UpdatePlayersTask extends AsyncTask {
 
     /** @var string $serverData */
     private string $serversData;
 	/**
 	* @param array<int, object> $servers
 	*/
-    public function __construct(array $servers){
+    public function __construct(array $servers) {
         $this->serversData = utf8_encode(serialize($servers));
     }
 
-    public function onRun() : void{
+    public function onRun() : void {
         $res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
         $serversConfig = (array)unserialize(utf8_decode($this->serversData));
         foreach ($serversConfig as $serverinfo){
@@ -56,7 +54,7 @@ class UpdatePlayersTask extends AsyncTask{
         $this->setResult($res);
     }
 
-    public function onCompletion() : void{
+    public function onCompletion() : void {
 	    $server = Server::getInstance();
         /**@var array $res */
 	    $res = (array)$this->getResult();
