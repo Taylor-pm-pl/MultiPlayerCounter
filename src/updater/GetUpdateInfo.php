@@ -31,6 +31,7 @@
 
 namespace davidglitch04\MultiPlayerCounter\updater;
 
+use CurlHandle;
 use davidglitch04\MultiPlayerCounter\Main;
 use pocketmine\scheduler\AsyncTask;
 
@@ -46,10 +47,12 @@ class GetUpdateInfo extends AsyncTask
     public function onRun(): void
     {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $this->url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        if ($curl instanceof CurlHandle){
+            curl_setopt($curl, CURLOPT_URL, $this->url);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        }
         $response = curl_exec($curl);
         $curlerror = curl_error($curl);
         $responseJson = json_decode($response, true);

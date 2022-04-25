@@ -31,6 +31,7 @@
 
 namespace davidglitch04\MultiPlayerCounter\updater;
 
+use CurlHandle;
 use Error;
 use pocketmine\scheduler\AsyncTask;
 use davidglitch04\MultiPlayerCounter\Main;
@@ -52,13 +53,14 @@ class DownloadFile extends AsyncTask
         if($file === false){
             throw new Error('Could not open: ' . $this->path);
         }
-
         $ch = curl_init($this->url);
-        curl_setopt($ch, CURLOPT_FILE, $file);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60); //give it 1 minute.
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_exec($ch);
-        if(curl_errno($ch)){
+        if ($ch instanceof CurlHandle){
+            curl_setopt($ch, CURLOPT_FILE, $file);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 60); //give it 1 minute.
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_exec($ch);
+        }
+        if((boolval(curl_errno($ch)))){
             throw new Error(curl_error($ch));
         }
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
