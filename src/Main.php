@@ -46,10 +46,6 @@ class Main extends PluginBase implements Listener {
         return $this->getFile();
     }
 
-    protected function checkUpdater() : void {
-        $this->getServer()->getAsyncPool()->submitTask(new GetUpdateInfo($this, "https://raw.githubusercontent.com/David-pm-pl/MultiPlayerCounter/stable/poggit_news.json"));
-    }
-
     public function getCachedPlayers() : int {
         return $this->cachedPlayers;
     }
