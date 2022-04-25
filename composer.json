@@ -8,7 +8,7 @@
    ],
    "require": {
       "jasonwynn10/libpmquery": "dev-master",
-      "cortexpe/commando": "dev-PM4",
+      "cortexpe/commando": "dev-master",
       "phpstan/extension-installer": "1.1.0",
       "pocketmine/pocketmine-mp": "4.2.9",
       "php": "^8.0",
