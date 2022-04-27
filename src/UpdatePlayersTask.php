@@ -19,12 +19,12 @@ use function utf8_encode;
  */
 class UpdatePlayersTask extends AsyncTask {
 
-    	private string $serversData;
+    		private string $serversData;
 	/**
-	* @param array<int, object> $servers
-	*/
+	 * @param array<int, object> $servers
+	 */
 	public function __construct(array $servers) {
-    	$this->serversData = utf8_encode(serialize($servers));
+    		$this->serversData = utf8_encode(serialize($servers));
 	}
 
 	public function onRun() : void {
@@ -43,10 +43,10 @@ class UpdatePlayersTask extends AsyncTask {
 				}
 			}
 		}
-        	$this->setResult($res);
-    	}
+        		$this->setResult($res);
+    		}
 
-    	public function onCompletion() : void {
+    		public function onCompletion() : void {
 		$server = Server::getInstance();
 		/**@var array $res */
 		$res = (array) $this->getResult();
@@ -59,5 +59,5 @@ class UpdatePlayersTask extends AsyncTask {
 			$plugin->setCachedPlayers(intval($res['count']));
 			$plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
 		}
-    	}
+    		}
 }
