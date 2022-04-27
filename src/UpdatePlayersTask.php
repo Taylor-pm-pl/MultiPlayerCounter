@@ -1,13 +1,6 @@
 <?php
 
-/**
- * MultiPlayerCounter plugin for PocketMine-MP
- * Copyright (C) 2022 DavidGlitch04 <https://github.com/DavidGlitch04>
- *
- * MultiPlayerCounter is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
- *
- * GNU General Public License <https://www.gnu.org/licenses/>
- */
+declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
@@ -26,7 +19,7 @@ use function utf8_encode;
  */
 class UpdatePlayersTask extends AsyncTask {
 
-    private string $serversData;
+    	private string $serversData;
 	/**
 	* @param array<int, object> $servers
 	*/
@@ -50,10 +43,10 @@ class UpdatePlayersTask extends AsyncTask {
 				}
 			}
 		}
-        $this->setResult($res);
-    }
+        	$this->setResult($res);
+    	}
 
-    public function onCompletion() : void {
+    	public function onCompletion() : void {
 		$server = Server::getInstance();
 		/**@var array $res */
 		$res = (array) $this->getResult();
@@ -65,6 +58,6 @@ class UpdatePlayersTask extends AsyncTask {
 		if($plugin instanceof Main){
 			$plugin->setCachedPlayers(intval($res['count']));
 			$plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
+		}
     	}
-    }
 }
