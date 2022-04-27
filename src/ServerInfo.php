@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace davidglitch04\MultiPlayerCounter;
 
 use libpmquery\PMQuery;
@@ -17,41 +19,41 @@ class ServerInfo {
     public function __construct(string $data)
     {
         $info = explode(":", $data);
-        $this->ip = strval($info[0]);
-        $this->port = intval($info[1]);
-    }
+		$this->ip = strval($info[0]);
+		$this->port = intval($info[1]);
+	}
 
-    public function getIp(): string {
+    public function getIp() : string {
         return $this->ip;
     }
 
-    public function getPort(): int {
-        return $this->port;
+    public function getPort() : int {
+    	return $this->port;
     }
 
-    public function toString(): string {
-        return $this->ip.":".$this->port;
+    public function toString() : string {
+        return $this->ip . ":" . $this->port;
     }
 	/**
-     * @return array<string, int|string>
-     */
-	public function getInfo(): array {
+	 * @return array<string, int|string>
+	 */
+	public function getInfo() : array {
 		try {
 			$qData = PMQuery::query($this->getIp(), $this->getPort());
 			/**@var array $array */
 			$array = [
-				"Status" => "online", 
+				"Status" => "online",
 				"Players" => $qData['Players'],
 				"Max" => $qData['MaxPlayers']
 			];
 			return $array;
-        }catch (PmQueryException $e){
+		}catch (PmQueryException $e){
 			/**@var array $false */
 			$false = [
-				"Status" => "offline", 
-				"error" => "Failed to query ".$this->toString().": ".$e->getMessage()
+        		"Status" => "offline",
+    			"error" => "Failed to query " . $this->toString() . ": " . $e->getMessage()
 			];
-            return $false;
-        }
+    		return $false;
+    	}
 	}
 }

@@ -1,13 +1,6 @@
 <?php
 
-/**
- * MultiPlayerCounter plugin for PocketMine-MP
- * Copyright (C) 2022 DavidGlitch04 <https://github.com/DavidGlitch04>
- *
- * MultiPlayerCounter is licensed under the GNU General Public License v3.0 (GPL-3.0 License)
- *
- * GNU General Public License <https://www.gnu.org/licenses/>
- */
+declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
@@ -24,10 +17,8 @@ use function count;
  */
 class Main extends PluginBase implements Listener {
 
-    /** @var int $cachedPlayers */
     private int $cachedPlayers = 0;
 
-    /** @var int $cachedMaxPlayers */
     private int $cachedMaxPlayers = 0;
 
     public function onEnable() : void
@@ -40,10 +31,6 @@ class Main extends PluginBase implements Listener {
         $this->saveDefaultConfig();
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    }
-
-    public function getFileHack(): string{
-        return $this->getFile();
     }
 
     public function getCachedPlayers() : int {
