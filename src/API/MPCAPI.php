@@ -23,18 +23,4 @@ class MPCAPI implements API{
             return false;
         }
     }
-
-    public function getSoftware(string $ip, int $port = 19132): string
-    {
-        try {
-            $status = json_decode(file_get_contents("https://api.mcsrvstat.us/2/" . $ip . ":" . $port));
-        } catch (\Exception $e) {
-            return "Error: Your IP does not open the port or the device does not match!";
-        }
-        try {
-            return "SoftWare: " . $status->software;
-        } catch (\Exception $e) {
-            return "SoftWare: Error or has blocked queries!";
-        }
-    }
 }

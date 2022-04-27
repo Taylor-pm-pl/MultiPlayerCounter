@@ -11,6 +11,4 @@ interface API {
     public function getServerInfo(string $ip, int $port = 19132) : ServerInfo;
 
     public function isOnline(string $ip, int $port = 19132) : bool;
-
-    public function getSoftware(string $ip, int $port = 19132): string;
 }
