@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
+use davidglitch04\MultiPlayerCounter\API\MPCAPI;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
@@ -31,6 +32,10 @@ class Main extends PluginBase implements Listener {
         $this->saveDefaultConfig();
         $this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    }
+    
+    public function getAPI() : MPCAPI{
+        return new MPCAPI();
     }
 
     public function getCachedPlayers() : int {

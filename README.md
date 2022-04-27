@@ -13,8 +13,9 @@
 - Easy to set up
 
 ## TODO
-- [ ] Add API for Plugin
+- [x] Add API for Plugin
 - [ ] Improve code
+- [ ] Add getVersion, getOnline, getMax to API
 
 # How to Install
 
