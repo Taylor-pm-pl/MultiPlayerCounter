@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener {
     public function onEnable() : void
 	{
         if(!class_exists(PMQuery::class)){
-            $this->getLogger()->error('Missing library cannot dynamically type plugin!');
+            $this->getLogger()->error('Missing library libpmquery cannot dynamically type plugin!');
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return;
         }
