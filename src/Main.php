@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace davidglitch04\MultiPlayerCounter;
 
 use davidglitch04\MultiPlayerCounter\API\MPCAPI;
+use davidglitch04\MultiPlayerCounter\Event\MaxSlotUpdateEvent;
 use davidglitch04\MultiPlayerCounter\Event\PlayerMergedEvent;
 use libpmquery\PMQuery;
 use pocketmine\event\Listener;
@@ -45,8 +46,6 @@ class Main extends PluginBase implements Listener {
 
     public function setCachedPlayers(int $cachedPlayers) : void {
         $this->cachedPlayers = $cachedPlayers;
-        $ev = new PlayerMergedEvent($this->cachedPlayers);
-        $ev->call();
         (new PlayerMergedEvent($this->cachedPlayers))->call();
     }
 
@@ -56,6 +55,7 @@ class Main extends PluginBase implements Listener {
 
     public function setCachedMaxPlayers(int $maxPlayers) : void {
         $this->cachedMaxPlayers = $maxPlayers;
+        (new MaxSlotUpdateEvent($this->cachedMaxPlayers))->call();
     }
 
     public function queryRegenerate(QueryRegenerateEvent $event) : void {
