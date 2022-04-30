@@ -2,7 +2,9 @@
 
 namespace davidglitch04\MultiPlayerCounter\Event;
 
-class PlayerMergedEvent extends MPCEvent{
+use pocketmine\event\Event;
+
+class PlayerMergedEvent extends Event{
 
     public function __construct(private int $countplayers)
     {
