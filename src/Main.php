@@ -46,7 +46,6 @@ class Main extends PluginBase implements Listener {
 
     public function setCachedPlayers(int $cachedPlayers) : void {
         $this->cachedPlayers = $cachedPlayers;
-        (new PlayerMergedEvent($this->cachedPlayers))->call();
     }
 
     public function getCachedMaxPlayers() : int {
@@ -55,11 +54,12 @@ class Main extends PluginBase implements Listener {
 
     public function setCachedMaxPlayers(int $maxPlayers) : void {
         $this->cachedMaxPlayers = $maxPlayers;
-        (new MaxSlotUpdateEvent($this->cachedMaxPlayers))->call();
     }
 
     public function queryRegenerate(QueryRegenerateEvent $event) : void {
         $event->getQueryInfo()->setPlayerCount($this->cachedPlayers + count($this->getServer()->getOnlinePlayers()));
+        (new PlayerMergedEvent($this->cachedPlayers))->call();
         $event->getQueryInfo()->setMaxPlayerCount($this->cachedMaxPlayers + $this->getServer()->getMaxPlayers());
+        (new MaxSlotUpdateEvent($this->cachedMaxPlayers))->call();
     }
 }
