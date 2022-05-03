@@ -14,16 +14,16 @@ use function strval;
 class ScheduleUpdateTask extends Task {
 	private Main $plugin;
 
-    public function __construct(Main $plugin) {
-    	$this->plugin = $plugin;
-    }
+	public function __construct(Main $plugin) {
+		$this->plugin = $plugin;
+	}
 
-    public function onRun() : void {
-    	$servers = (array) $this->plugin->getConfig()->get('servers-to-query', []);
+	public function onRun() : void {
+		$servers = (array) $this->plugin->getConfig()->get('servers-to-query', []);
 		$array = [];
 		foreach ($servers as $info){
-    		$array[] = new ServerInfo(strval($info));
-        }
-        $this->plugin->getServer()->getAsyncPool()->submitTask(new UpdatePlayersTask($array));
-    }
+			$array[] = new ServerInfo(strval($info));
+		}
+		$this->plugin->getServer()->getAsyncPool()->submitTask(new UpdatePlayersTask($array));
+	}
 }
