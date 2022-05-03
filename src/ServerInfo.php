@@ -16,8 +16,7 @@ class ServerInfo {
 	/**@var int $port */
 	protected int $port;
 
-	public function __construct(string $data)
-	{
+	public function __construct(string $data) {
 		$info = explode(":", $data);
 		$this->ip = strval($info[0]);
 		$this->port = intval($info[1]);
@@ -47,7 +46,7 @@ class ServerInfo {
 				"Max" => $qData['MaxPlayers']
 			];
 			return $array;
-		}catch (PmQueryException $e){
+		} catch (PmQueryException $e) {
 			/**@var array $false */
 			$false = [
 				"Status" => "offline",

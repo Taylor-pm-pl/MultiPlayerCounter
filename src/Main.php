@@ -24,9 +24,8 @@ class Main extends PluginBase implements Listener {
 
 	private int $cachedMaxPlayers = 0;
 
-	public function onEnable() : void
-	{
-		if(!class_exists(PMQuery::class)){
+	public function onEnable() : void {
+		if (!class_exists(PMQuery::class)) {
 			$this->getLogger()->error('Please download virion libpmquery at https://github.com/jasonwynn10/libpmquery!');
 			$this->getServer()->getPluginManager()->disablePlugin($this);
 			return;
@@ -35,8 +34,8 @@ class Main extends PluginBase implements Listener {
 		$this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
-	
-	public function getAPI() : MPCAPI{
+
+	public function getAPI() : MPCAPI {
 		return new MPCAPI();
 	}
 
@@ -56,7 +55,7 @@ class Main extends PluginBase implements Listener {
 		$this->cachedMaxPlayers = $maxPlayers;
 	}
 
-	public function queryRegenerate(QueryRegenerateEvent $event) : void {
+	public function queryRegenerate(QueryRegenerateEvent $event): void {
 		$event->getQueryInfo()->setPlayerCount($this->cachedPlayers + count($this->getServer()->getOnlinePlayers()));
 		(new PlayerMergedEvent($this->cachedPlayers))->call();
 		$event->getQueryInfo()->setMaxPlayerCount($this->cachedMaxPlayers + $this->getServer()->getMaxPlayers());

@@ -30,15 +30,15 @@ class UpdatePlayersTask extends AsyncTask {
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
 		$serversConfig = (array) unserialize(utf8_decode($this->serversData));
-		foreach ($serversConfig as $serverinfo){
-			if ($serverinfo instanceof ServerInfo){
+		foreach ($serversConfig as $serverinfo) {
+			if ($serverinfo instanceof ServerInfo) {
 				$ip = $serverinfo->getIp();
 				$port = $serverinfo->getPort();
 				$status = $serverinfo->getInfo();
-				if($status["Status"] == "online"){
+				if ($status["Status"] == "online") {
 					$res['count'] += $status["Players"];
 					$res['maxPlayers'] += $status["Max"];
-				} elseif ($status["Status"] == "offline"){
+				} elseif ($status["Status"] == "offline") {
 					$res['errors'][] = $status["error"];
 				}
 			}
@@ -51,11 +51,11 @@ class UpdatePlayersTask extends AsyncTask {
 		/**@var array $res */
 		$res = (array) $this->getResult();
 		$err = (array) $res['errors'];
-		foreach($err as $e){
+		foreach ($err as $e) {
 			$server->getLogger()->warning(strval($e));
 		}
 		$plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
-		if($plugin instanceof Main){
+		if ($plugin instanceof Main) {
 			$plugin->setCachedPlayers(intval($res['count']));
 			$plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
 		}
