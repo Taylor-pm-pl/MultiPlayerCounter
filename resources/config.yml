@@ -12,6 +12,6 @@ update-players-interval: 30
 
 #Format: "ip:port"
 servers-to-query:
-- "127.0.0.1:19133"
-- "127.0.0.1:19134"
+  - "127.0.0.1:19133"
+  - "127.0.0.1:19134"
 ...

@@ -1,3 +1,4 @@
+---
 name: MultiPlayerCounter
 main: davidglitch04\MultiPlayerCounter\Main
 src-namespace-prefix: davidglitch04\MultiPlayerCounter
@@ -14,3 +15,4 @@ permissions:
   multiplayercount.allow.command:
     default: op
     description: "Allow player to use /multiplayercount command"
+...
