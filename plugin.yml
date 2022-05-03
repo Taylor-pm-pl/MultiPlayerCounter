@@ -1,7 +1,6 @@
 ---
 name: MultiPlayerCounter
 main: davidglitch04\MultiPlayerCounter\Main
-src-namespace-prefix: davidglitch04\MultiPlayerCounter
 api: 4.0.0
 version: 0.0.4
 author: DavidGlitch04
