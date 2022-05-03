@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fe68c6ddfef24f94aa4312ef5ad7a6a",
+    "content-hash": "ffc90c942822eab95c994cecb15731d0",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -123,18 +123,19 @@
         },
         {
             "name": "cortexpe/commando",
-            "version": "dev-PM4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CortexPE/Commando.git",
-                "reference": "89a1bc1f9ffb748004888e38e0479e2ec58a3fc4"
+                "reference": "ede058439d2b217a0f5de86d7456a7a96d2d296f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CortexPE/Commando/zipball/89a1bc1f9ffb748004888e38e0479e2ec58a3fc4",
-                "reference": "89a1bc1f9ffb748004888e38e0479e2ec58a3fc4",
+                "url": "https://api.github.com/repos/CortexPE/Commando/zipball/ede058439d2b217a0f5de86d7456a7a96d2d296f",
+                "reference": "ede058439d2b217a0f5de86d7456a7a96d2d296f",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -150,9 +151,9 @@
             "description": "A Command Framework virion for PocketMine-MP ",
             "support": {
                 "issues": "https://github.com/CortexPE/Commando/issues",
-                "source": "https://github.com/CortexPE/Commando/tree/PM4"
+                "source": "https://github.com/CortexPE/Commando/tree/master"
             },
-            "time": "2021-11-21T08:13:35+00:00"
+            "time": "2022-04-04T13:57:06+00:00"
         },
         {
             "name": "fgrosse/phpasn1",
@@ -234,19 +235,20 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jasonwynn10/libpmquery.git",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca"
+                "url": "https://github.com/DavidGlitch04/libpmquery.git",
+                "reference": "2320277185afcb347e396d8ba87bb098ea130bee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasonwynn10/libpmquery/zipball/465e0129d4847bf2c8df66c001b6f90225c1c8ca",
-                "reference": "465e0129d4847bf2c8df66c001b6f90225c1c8ca",
+                "url": "https://api.github.com/repos/DavidGlitch04/libpmquery/zipball/2320277185afcb347e396d8ba87bb098ea130bee",
+                "reference": "2320277185afcb347e396d8ba87bb098ea130bee",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "libpmquery": [
+                    "libpmquery\\": [
                         "src\\libpmquery\\"
                     ]
                 }
@@ -255,12 +257,11 @@
             "license": [
                 "LGPL-3.0-only"
             ],
-            "description": "A PocketMine Virion which allows plugins to query other servers for information ",
+            "description": "A PocketMine Virion which allows plugins to query other servers for information",
             "support": {
-                "issues": "https://github.com/jasonwynn10/libpmquery/issues",
-                "source": "https://github.com/jasonwynn10/libpmquery/tree/PM4"
+                "source": "https://github.com/DavidGlitch04/libpmquery/tree/master"
             },
-            "time": "2022-04-20T05:51:35+00:00"
+            "time": "2022-04-19T23:10:24+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -2088,16 +2089,16 @@
         },
         {
             "name": "phpstan/phpstan-phpunit",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-phpunit.git",
-                "reference": "09133ce914f1388a8bb8c7f8573aaa3723cff52a"
+                "reference": "4a3c437c09075736285d1cabb5c75bf27ed0bc84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/09133ce914f1388a8bb8c7f8573aaa3723cff52a",
-                "reference": "09133ce914f1388a8bb8c7f8573aaa3723cff52a",
+                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/4a3c437c09075736285d1cabb5c75bf27ed0bc84",
+                "reference": "4a3c437c09075736285d1cabb5c75bf27ed0bc84",
                 "shasum": ""
             },
             "require": {
@@ -2134,9 +2135,9 @@
             "description": "PHPUnit extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-phpunit/issues",
-                "source": "https://github.com/phpstan/phpstan-phpunit/tree/1.1.0"
+                "source": "https://github.com/phpstan/phpstan-phpunit/tree/1.1.1"
             },
-            "time": "2022-03-28T09:20:49+00:00"
+            "time": "2022-04-20T15:24:25+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
