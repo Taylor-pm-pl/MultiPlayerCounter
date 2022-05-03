@@ -32,8 +32,6 @@ class UpdatePlayersTask extends AsyncTask {
 		$serversConfig = (array) unserialize(utf8_decode($this->serversData));
 		foreach ($serversConfig as $serverinfo) {
 			if ($serverinfo instanceof ServerInfo) {
-				$ip = $serverinfo->getIp();
-				$port = $serverinfo->getPort();
 				$status = $serverinfo->getInfo();
 				if ($status["Status"] == "online") {
 					$res['count'] += $status["Players"];

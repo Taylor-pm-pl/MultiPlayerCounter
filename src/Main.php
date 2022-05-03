@@ -31,7 +31,7 @@ class Main extends PluginBase implements Listener {
 			return;
 		}
 		$this->saveDefaultConfig();
-		$this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval') * 20);
+		$this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval', 30) * 20);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 

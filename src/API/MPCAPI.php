@@ -17,8 +17,7 @@ class MPCAPI implements API {
 		$info = $api->getInfo();
 		if ($info["Status"] == "online") {
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 }

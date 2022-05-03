@@ -12,6 +12,7 @@ use function strval;
  * @package davidglitch04\MultiPlayerCounter
  */
 class ScheduleUpdateTask extends Task {
+
 	private Main $plugin;
 
 	public function __construct(Main $plugin) {

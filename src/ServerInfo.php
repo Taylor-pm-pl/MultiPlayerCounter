@@ -11,6 +11,7 @@ use function intval;
 use function strval;
 
 class ServerInfo {
+
 	/**@var string $ip */
 	protected string $ip;
 	/**@var int $port */
