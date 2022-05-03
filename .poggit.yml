@@ -2,7 +2,6 @@
 build-by-default: true
 branches:
 - stable
-- PM4
 projects:
   MultiPlayerCounter:
     icon: "assets/images/icon.png"
