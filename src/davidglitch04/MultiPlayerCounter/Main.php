@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener {
 		$this->saveDefaultConfig();
 		$this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval', 30) * 20);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if(VersionInfo::IS_DEVELOPMENT_BUILD !== false){
+		if(VersionInfo::IS_DEVELOPMENT_BUILD){ /* @phpstan-ignore-line (If condition is always true.) */
 			$this->getLogger()->warning("You are using the development builds. Development builds might have unexpected bugs, crash, break your plugins, corrupt all your data and more. Unless you're a developer and know what you're doing, please AVOID using development builds in production!");
 		}
 	}
