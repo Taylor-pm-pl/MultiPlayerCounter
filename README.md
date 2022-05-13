@@ -24,6 +24,12 @@
 3. Restart the server.
 4. Done!
 
+# Credits
+
+| Logo  | Description |
+| ------------- | ----------- |
+| <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/PhpStorm_icon.png" height="64" width="64" align="left"> | <a href="https://jb.gg/OpenSourceSupport">IDE for this project is supported by Jetbrains</a> |
+
 # Additional Notes
 
 - If you found bugs or want to give suggestions, please visit <a href="https://github.com/David-pm-pl/MultiPlayerCounter/issues">here</a> or join our Discord server.
