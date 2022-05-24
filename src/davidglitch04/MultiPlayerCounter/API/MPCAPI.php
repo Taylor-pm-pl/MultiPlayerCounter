@@ -7,7 +7,6 @@ namespace davidglitch04\MultiPlayerCounter\API;
 use davidglitch04\MultiPlayerCounter\ServerInfo;
 
 class MPCAPI implements API {
-
 	public function getServerInfo(string $ip, int $port = 19132) : ServerInfo {
 		return new ServerInfo($ip . ":" . $port);
 	}
