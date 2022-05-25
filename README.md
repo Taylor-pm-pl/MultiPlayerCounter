@@ -11,11 +11,7 @@
 ## Features
 - Combine players of multiple servers
 - Easy to set up
-
-## TODO
-- [x] Add API for Plugin
-- [ ] Improve code
-- [ ] Add getVersion, getOnline, getMax to API
+- API For Developers
 
 # How to Install
 
@@ -24,6 +20,24 @@
 3. Restart the server.
 4. Done!
 
+# API
+
+ ### Check server isOnline
+
+  ```php
+  use davidglitch04\MultiPlayerCounter\Main;
+
+  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+  var_dump($status);
+  ```
+
+ ### Get ServerInfo
+  ```php
+  use davidglitch04\MultiPlayerCounter\Main;
+
+  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+  var_dump($status);
+  ```
 # Credits
 
 | Logo  | Description |
