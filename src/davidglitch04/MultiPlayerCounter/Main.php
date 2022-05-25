@@ -37,7 +37,7 @@ class Main extends PluginBase implements Listener {
 		}
 	}
 
-	public function getAPI() : MPCAPI {
+	public static function getAPI() : MPCAPI {
 		return new MPCAPI();
 	}
 
