@@ -1,8 +1,8 @@
 ---
 name: MultiPlayerCounter
-main: davidglitch04\MultiPlayerCounter\Main
-api: 4.0.0
 version: 0.0.5
+api: 4.0.0
+main: davidglitch04\MultiPlayerCounter\Main
 author: DavidGlitch04
 website: https://github.com/DavidGlitch04
 load: STARTUP
