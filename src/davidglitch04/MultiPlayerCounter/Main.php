@@ -19,19 +19,13 @@ use function count;
  * @package davidglitch04\MultiPlayerCounter
  */
 class Main extends PluginBase implements Listener {
-    /**
-     * @var int $cachedPlayers
-     */
+
 	private int $cachedPlayers = 0;
 
-    /**
-     * @var int $cachedMaxPlayers
-     */
+
 	private int $cachedMaxPlayers = 0;
 
-    /**
-     * @return void
-     */
+
 	public function onEnable() : void {
 		if (!class_exists(PMQuery::class)) {
 			$this->getLogger()->error('Please download virion libpmquery at https://github.com/jasonwynn10/libpmquery!');
@@ -46,52 +40,34 @@ class Main extends PluginBase implements Listener {
 		}
 	}
 
-    /**
-     * Get API
-     *
-     * @return MPCAPI
-     */
+	/**
+	 * Get API
+	 */
 	public static function getAPI() : MPCAPI {
 		return new MPCAPI();
 	}
 
-    /**
-     * @return int
-     */
+
 	public function getCachedPlayers() : int {
 		return $this->cachedPlayers;
 	}
 
-    /**
-     * @param int $cachedPlayers
-     *
-     * @return void
-     */
+
 	public function setCachedPlayers(int $cachedPlayers) : void {
 		$this->cachedPlayers = $cachedPlayers;
 	}
 
-    /**
-     * @return int
-     */
+
 	public function getCachedMaxPlayers() : int {
 		return $this->cachedMaxPlayers;
 	}
 
-    /**
-     * @param int $maxPlayers
-     *
-     * @return void
-     */
+
 	public function setCachedMaxPlayers(int $maxPlayers) : void {
 		$this->cachedMaxPlayers = $maxPlayers;
 	}
 
-    /**
-     * @param QueryRegenerateEvent $event
-     *
-     * @return void
-     */
+
 	public function queryRegenerate(QueryRegenerateEvent $event) : void {
 		$event->getQueryInfo()->setPlayerCount($this->cachedPlayers + count($this->getServer()->getOnlinePlayers()));
 		(new PlayerMergedEvent($this->cachedPlayers))->call();
