@@ -6,6 +6,7 @@ namespace davidglitch04\MultiPlayerCounter;
 
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
+
 use function intval;
 use function serialize;
 use function strval;
@@ -18,7 +19,11 @@ use function utf8_encode;
  * @package davidglitch04\MultiPlayerCounter
  */
 class UpdatePlayersTask extends AsyncTask {
+    /**
+     * @var string
+     */
 	private string $serversData;
+
 	/**
 	 * @param array<int, object> $servers
 	 */
@@ -26,12 +31,15 @@ class UpdatePlayersTask extends AsyncTask {
 		$this->serversData = utf8_encode(serialize($servers));
 	}
 
+    /**
+     * @return void
+     */
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
 		$serversConfig = (array) unserialize(utf8_decode($this->serversData));
-		foreach ($serversConfig as $serverinfo) {
-			if ($serverinfo instanceof ServerInfo) {
-				$status = $serverinfo->getInfo();
+		foreach ($serversConfig as $serverInfo) {
+			if ($serverInfo instanceof ServerInfo) {
+				$status = $serverInfo->getInfo();
 				if ($status["Status"] == "online") {
 					$res['count'] += $status["Players"];
 					$res['maxPlayers'] += $status["Max"];
@@ -43,10 +51,12 @@ class UpdatePlayersTask extends AsyncTask {
 		$this->setResult($res);
 	}
 
+    /**
+     * @return void
+     */
 	public function onCompletion() : void {
 		$server = Server::getInstance();
-		/**@var array $res */
-		$res = (array) $this->getResult();
+        $res = (array) $this->getResult();
 		$err = (array) $res['errors'];
 		foreach ($err as $e) {
 			$server->getLogger()->warning(strval($e));

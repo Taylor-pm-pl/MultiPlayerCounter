@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace davidglitch04\MultiPlayerCounter;
 
 use pocketmine\scheduler\Task;
+
 use function strval;
 
 /**
@@ -12,12 +13,18 @@ use function strval;
  * @package davidglitch04\MultiPlayerCounter
  */
 class ScheduleUpdateTask extends Task {
+    /**
+     * @var Main $plugin
+     */
 	private Main $plugin;
 
 	public function __construct(Main $plugin) {
 		$this->plugin = $plugin;
 	}
 
+    /**
+     * @return void
+     */
 	public function onRun() : void {
 		$servers = (array) $this->plugin->getConfig()->get('servers-to-query', []);
 		$array = [];
