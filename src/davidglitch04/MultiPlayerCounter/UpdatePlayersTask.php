@@ -19,9 +19,7 @@ use function utf8_encode;
  * @package davidglitch04\MultiPlayerCounter
  */
 class UpdatePlayersTask extends AsyncTask {
-    /**
-     * @var string
-     */
+
 	private string $serversData;
 
 	/**
@@ -31,9 +29,7 @@ class UpdatePlayersTask extends AsyncTask {
 		$this->serversData = utf8_encode(serialize($servers));
 	}
 
-    /**
-     * @return void
-     */
+
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
 		$serversConfig = (array) unserialize(utf8_decode($this->serversData));
@@ -51,12 +47,10 @@ class UpdatePlayersTask extends AsyncTask {
 		$this->setResult($res);
 	}
 
-    /**
-     * @return void
-     */
+
 	public function onCompletion() : void {
 		$server = Server::getInstance();
-        $res = (array) $this->getResult();
+		$res = (array) $this->getResult();
 		$err = (array) $res['errors'];
 		foreach ($err as $e) {
 			$server->getLogger()->warning(strval($e));
