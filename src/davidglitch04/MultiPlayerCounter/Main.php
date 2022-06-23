@@ -19,7 +19,6 @@ use function count;
  * @package davidglitch04\MultiPlayerCounter
  */
 class Main extends PluginBase implements Listener {
-
 	private int $cachedPlayers = 0;
 
 

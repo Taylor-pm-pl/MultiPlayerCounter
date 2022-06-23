@@ -19,7 +19,6 @@ use function utf8_encode;
  * @package davidglitch04\MultiPlayerCounter
  */
 class UpdatePlayersTask extends AsyncTask {
-
 	private string $serversData;
 
 	/**
