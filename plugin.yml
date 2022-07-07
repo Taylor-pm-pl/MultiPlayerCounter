@@ -1,7 +1,7 @@
 ---
 name: MultiPlayerCounter
-version: 0.0.5
-api: 4.0.0
+version: 0.0.6-alpha1
+api: 5.0.0
 main: davidglitch04\MultiPlayerCounter\Main
 author: DavidGlitch04
 website: https://github.com/DavidGlitch04
