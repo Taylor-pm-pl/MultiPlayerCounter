@@ -17,7 +17,7 @@
       "phpstan/extension-installer": "1.1.0",
       "phpunit/phpunit": "^9.2",
       "phpstan/phpstan-phpunit": "^1.1.0",
-      "friendsofphp/php-cs-fixer": "v3.10.0"
+      "friendsofphp/php-cs-fixer": "v3.13.0"
    },
    "readme": "../README.md",
    "homepage": "https://github.com/david-pm-pl",
