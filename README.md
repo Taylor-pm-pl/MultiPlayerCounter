@@ -6,9 +6,11 @@
 
 **NOTICE:** This plugin branch is for PocketMine-MP 4. <br/>
 ✨ **Combine players of multiple servers**
+
 </div>
 
 ## Features
+
 - Combine players of multiple servers
 - Easy to set up
 - API For Developers
@@ -22,30 +24,31 @@
 
 # API
 
- ### Check server isOnline
+### Check server isOnline
 
-  ```php
-  use davidglitch04\MultiPlayerCounter\Main;
+```php
+use davidglitch04\MultiPlayerCounter\Main;
 
-  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
-  var_dump($status);
-  ```
+$status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+var_dump($status);
+```
 
- ### Get ServerInfo
-  ```php
-  use davidglitch04\MultiPlayerCounter\Main;
+### Get ServerInfo
 
-  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
-  var_dump($status);
-  ```
+```php
+use davidglitch04\MultiPlayerCounter\Main;
+
+$status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+var_dump($status);
+```
+
 # Credits
 
-| Logo  | Description |
-| ------------- | ----------- |
+| Logo                                                                                                                                   | Description                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/PhpStorm_icon.png" height="64" width="64" align="left"> | <a href="https://jb.gg/OpenSourceSupport">IDE for this project is supported by Jetbrains</a> |
 
 # Additional Notes
 
 - If you found bugs or want to give suggestions, please visit <a href="https://github.com/David-pm-pl/MultiPlayerCounter/issues">here</a> or join our Discord server.
 - We accept all contributions! If you want to contribute, please make a pull request in <a href="https://github.com/David-pm-pl/MultiPlayerCounter/pulls">here</a>.
- 
