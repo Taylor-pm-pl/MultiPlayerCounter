@@ -14,5 +14,5 @@ permissions:
   multiplayercount.allow.command:
     default: op
     description: "Allow player to use /multiplayercount command"
-...
- 
+---
+
