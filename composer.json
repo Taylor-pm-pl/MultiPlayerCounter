@@ -1,56 +1,56 @@
 {
-   "name": "davidglitch04/multiplayercounter",
-   "description": "A pocketmine-mp plugin that combines online players counts of multiple servers.",
-   "type": "project",
-   "keywords": [
-      "multiplayercounter",
-      "pocketmine-mp"
-   ],
-   "require": {
-      "jasonwynn10/libpmquery": "dev-master",
-      "php": "^8.0.12",
-      "pocketmine/pocketmine-mp": "4.13.0"
-    },
-    "require-dev": {
-      "phpstan/phpstan": "1.9.14",
-      "phpstan/phpstan-strict-rules": "1.4.2",
-      "phpstan/extension-installer": "1.2.0",
-      "phpunit/phpunit": "^9.2",
-      "phpstan/phpstan-phpunit": "^1.1.0",
-      "friendsofphp/php-cs-fixer": "v3.14.3"
-   },
-   "readme": "../README.md",
-   "homepage": "https://github.com/david-pm-pl",
-   "time": "2022-18-04 07:22",
-   "license": "GPL-3.0-only",
-   "authors": [
-        {
-            "name": "YTBJero",
-            "email": "nguyenhieucoder47@gmail.com",
-            "homepage": "https://github.com/DavidGlitch04",
-            "role": "Developer"
-        }
-    ],
-   "support": {
+  "name": "davidglitch04/multiplayercounter",
+  "description": "A pocketmine-mp plugin that combines online players counts of multiple servers.",
+  "type": "project",
+  "keywords": [
+    "multiplayercounter",
+    "pocketmine-mp"
+  ],
+  "require": {
+    "jasonwynn10/libpmquery": "dev-master",
+    "php": "^8.0.12",
+    "pocketmine/pocketmine-mp": "4.13.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "1.9.14",
+    "phpstan/phpstan-strict-rules": "1.4.2",
+    "phpstan/extension-installer": "1.2.0",
+    "phpunit/phpunit": "^9.2",
+    "phpstan/phpstan-phpunit": "^1.1.0",
+    "friendsofphp/php-cs-fixer": "v3.14.3"
+  },
+  "readme": "../README.md",
+  "homepage": "https://github.com/david-pm-pl",
+  "time": "2022-18-04 07:22",
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "YTBJero",
       "email": "nguyenhieucoder47@gmail.com",
-      "issues": "https://github.com/david-pm-pl/MultiPlayerCounter/issues",
-      "wiki": "https://github.com/david-pm-pl/MultiPlayerCounter/wiki",
-      "source": "https://github.com/david-pm-pl/MultiPlayerCounter"
-   },
-   "funding": [
-      {
-         "type": "patreon",
-         "url": "https://www.patreon.com/Ericpmpl"
-      }
-   ],
-   "autoload": {
-      "psr-4": {
-         "": "../src"
-      }
-   },
-   "config": {
-      "allow-plugins": {
-         "phpstan/extension-installer": true
-      }
-   }
+      "homepage": "https://github.com/DavidGlitch04",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "nguyenhieucoder47@gmail.com",
+    "issues": "https://github.com/david-pm-pl/MultiPlayerCounter/issues",
+    "wiki": "https://github.com/david-pm-pl/MultiPlayerCounter/wiki",
+    "source": "https://github.com/david-pm-pl/MultiPlayerCounter"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/Ericpmpl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "../src"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
+  }
 }
