@@ -41,7 +41,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           install-path: "./bin"
-          
+
       - name: Update Composer
         run: composer update
 
@@ -62,7 +62,7 @@ jobs:
 
       - name: Run PHPStan
         run: ./vendor/bin/phpstan analyze --no-progress --memory-limit=2G
-        
+
   codestyle:
     name: Code Style checks
     runs-on: ubuntu-20.04
@@ -70,13 +70,15 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup PHP and tools
-        uses: shivammathur/setup-php@2.15.0
+        uses: shivammathur/setup-php@2.24.0
         with:
           php-version: 8.0
-          tools: php-cs-fixer:3.2
+          tools: php-cs-fixer:3.11
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run PHP-CS-Fixer
         run: php-cs-fixer fix --dry-run --diff --ansi
