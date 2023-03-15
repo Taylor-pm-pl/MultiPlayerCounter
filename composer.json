@@ -10,8 +10,8 @@
       "jasonwynn10/libpmquery": "dev-master",
       "php": "^8.0.12",
       "pocketmine/pocketmine-mp": "4.17.0"
-    },
-    "require-dev": {
+   },
+   "require-dev": {
       "phpstan/phpstan": "1.10.6",
       "phpstan/phpstan-strict-rules": "1.4.5",
       "phpstan/extension-installer": "1.2.0",
@@ -24,13 +24,13 @@
    "time": "2022-18-04 07:22",
    "license": "GPL-3.0-only",
    "authors": [
-        {
-            "name": "YTBJero",
-            "email": "nguyenhieucoder47@gmail.com",
-            "homepage": "https://github.com/DavidGlitch04",
-            "role": "Developer"
-        }
-    ],
+      {
+         "name": "YTBJero",
+         "email": "nguyenhieucoder47@gmail.com",
+         "homepage": "https://github.com/DavidGlitch04",
+         "role": "Developer"
+      }
+   ],
    "support": {
       "email": "nguyenhieucoder47@gmail.com",
       "issues": "https://github.com/david-pm-pl/MultiPlayerCounter/issues",
