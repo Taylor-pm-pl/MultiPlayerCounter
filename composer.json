@@ -15,7 +15,7 @@
       "phpstan/phpstan": "1.10.6",
       "phpstan/phpstan-strict-rules": "1.5.0",
       "phpstan/extension-installer": "1.2.0",
-      "phpunit/phpunit": "^9.2",
+      "phpunit/phpunit": "^10.0",
       "phpstan/phpstan-phpunit": "^1.1.0",
       "friendsofphp/php-cs-fixer": "v3.15.1"
    },
