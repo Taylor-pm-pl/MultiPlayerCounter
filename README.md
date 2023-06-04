@@ -22,20 +22,20 @@
 
 # API
 
- ### Check server isOnline
+ ### Check server is online
 
   ```php
-  use davidglitch04\MultiPlayerCounter\Main;
+  use davidglitch04\MultiPlayerCounter\API\MPCAPI;
 
-  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+  $status = MPCAPI::isOnline(string: ip, int: port); // Return bool
   var_dump($status);
   ```
 
  ### Get ServerInfo
   ```php
-  use davidglitch04\MultiPlayerCounter\Main;
+  use davidglitch04\MultiPlayerCounter\API\MPCAPI;
 
-  $status = Main::getAPI()->isOnline(string: ip, int: port); // Return bool
+  $status = MPCAPI::getServerInfo(string: ip, int: port); // Return bool
   var_dump($status);
   ```
 # Credits

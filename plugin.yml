@@ -1,14 +1,12 @@
 ---
 name: MultiPlayerCounter
-version: 0.0.6-alpha1
+version: 0.0.7
 api: 5.0.0
 main: davidglitch04\MultiPlayerCounter\Main
 author: DavidGlitch04
 website: https://github.com/DavidGlitch04
 load: STARTUP
 description: "A PocketMine-MP plugin that combines online players counts of multiple servers."
-extensions:
-  core: ">=8.0"
 
 permissions:
   multiplayercount.allow.command:
