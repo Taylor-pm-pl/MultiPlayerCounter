@@ -11,8 +11,6 @@ use function intval;
 use function serialize;
 use function strval;
 use function unserialize;
-use function utf8_decode;
-use function utf8_encode;
 
 /**
  * Class UpdatePlayersTask
@@ -25,13 +23,13 @@ class UpdatePlayersTask extends AsyncTask {
 	 * @param array<int, object> $servers
 	 */
 	public function __construct(array $servers) {
-		$this->serversData = utf8_encode(serialize($servers));
+		$this->serversData = serialize($servers);
 	}
 
 
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
-		$serversConfig = (array) unserialize(utf8_decode($this->serversData));
+		$serversConfig = (array) unserialize($this->serversData);
 		foreach ($serversConfig as $serverInfo) {
 			if ($serverInfo instanceof ServerInfo) {
 				$status = $serverInfo->getInfo();

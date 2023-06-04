@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use davidglitch04\MultiPlayerCounter\API\MPCAPI;
 use davidglitch04\MultiPlayerCounter\Event\MaxSlotUpdateEvent;
 use davidglitch04\MultiPlayerCounter\Event\PlayerMergedEvent;
-use libpmquery\PMQuery;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\plugin\PluginBase;
-use function class_exists;
 use function count;
 
 /**
@@ -19,7 +16,6 @@ use function count;
  * @package davidglitch04\MultiPlayerCounter
  */
 class Main extends PluginBase implements Listener {
-
 	private int $cachedPlayers, $cachedMaxPlayers = 0;
 
 	public function onEnable() : void {
