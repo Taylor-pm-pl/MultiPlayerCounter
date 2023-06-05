@@ -15,9 +15,6 @@ class MPCAPI implements API {
 	public static function isOnline(string $ip, int $port = 19132) : bool {
 		$api = new ServerInfo($ip . ":" . $port);
 		$info = $api->getInfo();
-		if ($info["Status"] == "online") {
-			return true;
-		}
-		return false;
+		return $info["Status"] == "online";
 	}
 }
