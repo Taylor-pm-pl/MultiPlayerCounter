@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace davidglitch04\MultiPlayerCounter\API;
+namespace davidglitch04\MultiPlayerCounter\api;
 
 use davidglitch04\MultiPlayerCounter\ServerInfo;
 use function boolval;
