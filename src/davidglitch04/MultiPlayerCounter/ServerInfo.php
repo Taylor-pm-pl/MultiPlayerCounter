@@ -15,7 +15,7 @@ class ServerInfo {
 	/**@var int $port */
 	protected int $port;
 
-    /** @var array<string, int|string> $info */
+	/** @var array<string, int|string> $info */
 	public function __construct(array $info) {
 		$this->address = $info["address"];
 		$this->port = intval($info["port"]);

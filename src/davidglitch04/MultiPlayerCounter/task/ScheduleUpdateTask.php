@@ -15,14 +15,13 @@ use function explode;
  * @package davidglitch04\MultiPlayerCounter
  */
 class ScheduleUpdateTask extends Task {
-
 	public function onRun() : void {
 		/** @var Main $plugin */
 		$plugin = Main::getInstance();
 		$servers = $plugin->getConfig()->get('servers-to-query', []);
 		$array = [];
 		foreach ($servers as $info) {
-            /** @var array<string> $infoExplode */
+			/** @var array<string> $infoExplode */
 			$infoExplode = explode(":", $info);
 			$array[] = new ServerInfo([
 				'address' => $infoExplode[0],
