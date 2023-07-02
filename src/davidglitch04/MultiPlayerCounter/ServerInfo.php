@@ -43,24 +43,22 @@ class ServerInfo {
 	}
 
 	/**
-	 * @return array<string, int|string>
+	 * @return array<string, int|bool|string>
 	 */
 	public function getInfo() : array {
 		try {
 			$qData = PMQuery::query($this->getAddress(), $this->getPort());
 
 			return [
-				"status" => "online",
+				"online" => true,
 				"players" => $qData['Players'],
 				"max" => $qData['MaxPlayers']
 			];
 		} catch (PmQueryException $e) {
-			/**@var array $false */
-			$false = [
-				"status" => "offline",
-				"error" => "Failed to query " . $this->__toString() . ": " . $e->getMessage()
-			];
-			return $false;
+			return [
+                "online" => false,
+                "error" => "Failed to query " . $this->__toString() . ": " . $e->getMessage()
+            ];
 		}
 	}
 }

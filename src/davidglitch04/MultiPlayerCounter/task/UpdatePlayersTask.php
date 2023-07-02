@@ -28,10 +28,10 @@ class UpdatePlayersTask extends AsyncTask {
 		foreach ($serversConfig as $serverInfo) {
 			if ($serverInfo instanceof ServerInfo) {
 				$status = $serverInfo->getInfo();
-				if ($status["status"] === "online") {
+				if ($status["online"]) {
 					$res['count'] += $status["players"];
 					$res['maxPlayers'] += $status["max"];
-				} elseif ($status["status"] === "offline") {
+				} else {
 					$res['errors'][] = $status["error"];
 				}
 			}

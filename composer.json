@@ -15,22 +15,22 @@
       "friendsofphp/php-cs-fixer": "v3.17"
    },
    "readme": "../README.md",
-   "homepage": "https://github.com/david-pm-pl",
+   "homepage": "https://github.com/taylor-pm-pl",
    "time": "2022-18-04 07:22",
    "license": "GPL-3.0-only",
    "authors": [
       {
          "name": "taylordevs",
          "email": "nguyenhieucoder47@gmail.com",
-         "homepage": "https://github.com/DavidGlitch04",
+         "homepage": "https://github.com/taylordevs",
          "role": "Developer"
       }
    ],
    "support": {
       "email": "nguyenhieucoder47@gmail.com",
-      "issues": "https://github.com/david-pm-pl/MultiPlayerCounter/issues",
-      "wiki": "https://github.com/david-pm-pl/MultiPlayerCounter/wiki",
-      "source": "https://github.com/david-pm-pl/MultiPlayerCounter"
+      "issues": "https://github.com/taylor-pm-pl/MultiPlayerCounter/issues",
+      "wiki": "https://github.com/taylor-pm-pl/MultiPlayerCounter/wiki",
+      "source": "https://github.com/taylor-pm-pl/MultiPlayerCounter"
    },
    "funding": [
       {
