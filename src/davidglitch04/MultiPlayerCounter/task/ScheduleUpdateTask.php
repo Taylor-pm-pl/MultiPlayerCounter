@@ -9,7 +9,6 @@ use davidglitch04\MultiPlayerCounter\ServerInfo;
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
 use function explode;
-use function strval;
 
 /**
  * Class ScheduleUpdateTask
@@ -21,11 +20,12 @@ class ScheduleUpdateTask extends Task {
 		$plugin = Main::getInstance();
 		$servers = $plugin->getConfig()->get('servers-to-query', []);
 		$array = [];
+		/** @var array<string> $servers */
 		foreach ($servers as $info) {
-			$infoExplode = explode(":", $info);
+			$info = explode(":", $info);
 			$array[] = new ServerInfo([
-				'address' => strval($infoExplode[0]),
-				'port' => strval($infoExplode[1]),
+				'address' => $info[0],
+				'port' => $info[1],
 			]);
 		}
 		Server::getInstance()->getAsyncPool()->submitTask(new UpdatePlayersTask($array));

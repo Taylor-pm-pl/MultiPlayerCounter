@@ -25,6 +25,7 @@ class UpdatePlayersTask extends AsyncTask {
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
 		$serversConfig = $this->serversData->deserialize();
+		/** @var array<ServerInfo> $serversConfig */
 		foreach ($serversConfig as $serverInfo) {
 			if ($serverInfo instanceof ServerInfo) {
 				$status = $serverInfo->getInfo();
