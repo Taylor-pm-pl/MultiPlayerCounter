@@ -4,27 +4,32 @@ declare(strict_types=1);
 
 namespace davidglitch04\MultiPlayerCounter;
 
-use davidglitch04\MultiPlayerCounter\Event\MaxSlotUpdateEvent;
-use davidglitch04\MultiPlayerCounter\Event\PlayerMergedEvent;
+use davidglitch04\MultiPlayerCounter\events\MaxSlotUpdateEvent;
+use davidglitch04\MultiPlayerCounter\events\PlayerMergedEvent;
+use davidglitch04\MultiPlayerCounter\task\ScheduleUpdateTask;
 use pocketmine\event\Listener;
 use pocketmine\event\server\QueryRegenerateEvent;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\SingletonTrait;
 use function count;
 
-/**
- * Class Main
- * @package davidglitch04\MultiPlayerCounter
- */
 class Main extends PluginBase implements Listener {
+	use SingletonTrait;
+
+
 	private int $cachedPlayers, $cachedMaxPlayers = 0;
+
+	protected function onLoad() : void {
+		self::setInstance($this);
+	}
 
 	public function onEnable() : void {
 		$this->saveDefaultConfig();
-		$this->getScheduler()->scheduleRepeatingTask(new ScheduleUpdateTask($this), $this->getConfig()->get('update-players-interval', 30) * 20);
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if (VersionInfo::IS_DEVELOPMENT_BUILD) { /* @phpstan-ignore-line (If condition is always true.) */
-			$this->getLogger()->warning("You are using the development builds. Development builds might have unexpected bugs, crash, break your plugins, corrupt all your data and more. Unless you're a developer and know what you're doing, please AVOID using development builds in production!");
-		}
+		$this->getScheduler()->scheduleRepeatingTask(
+			new ScheduleUpdateTask($this),
+			$this->getConfig()->get('update-players-interval', 30) * 20
+		);
 	}
 
 

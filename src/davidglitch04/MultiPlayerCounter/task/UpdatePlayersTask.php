@@ -2,41 +2,36 @@
 
 declare(strict_types=1);
 
-namespace davidglitch04\MultiPlayerCounter;
+namespace davidglitch04\MultiPlayerCounter\task;
 
+use davidglitch04\MultiPlayerCounter\Main;
+use davidglitch04\MultiPlayerCounter\ServerInfo;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
-
+use pocketmine\thread\NonThreadSafeValue;
 use function intval;
-use function serialize;
 use function strval;
-use function unserialize;
-
-/**
- * Class UpdatePlayersTask
- * @package davidglitch04\MultiPlayerCounter
- */
 class UpdatePlayersTask extends AsyncTask {
-	private string $serversData;
+	private NonThreadSafeValue $serversData;
 
 	/**
 	 * @param array<int, object> $servers
 	 */
 	public function __construct(array $servers) {
-		$this->serversData = serialize($servers);
+		$this->serversData = new NonThreadSafeValue($servers);
 	}
 
 
 	public function onRun() : void {
 		$res = ['count' => 0, 'maxPlayers' => 0, 'errors' => []];
-		$serversConfig = (array) unserialize($this->serversData);
+		$serversConfig = $this->serversData->deserialize();
 		foreach ($serversConfig as $serverInfo) {
 			if ($serverInfo instanceof ServerInfo) {
 				$status = $serverInfo->getInfo();
-				if ($status["Status"] == "online") {
-					$res['count'] += $status["Players"];
-					$res['maxPlayers'] += $status["Max"];
-				} elseif ($status["Status"] == "offline") {
+				if ($status["status"] === "online") {
+					$res['count'] += $status["players"];
+					$res['maxPlayers'] += $status["max"];
+				} elseif ($status["status"] === "offline") {
 					$res['errors'][] = $status["error"];
 				}
 			}
@@ -52,10 +47,9 @@ class UpdatePlayersTask extends AsyncTask {
 		foreach ($err as $e) {
 			$server->getLogger()->warning(strval($e));
 		}
-		$plugin = $server->getPluginManager()->getPlugin("MultiPlayerCounter");
-		if ($plugin instanceof Main) {
-			$plugin->setCachedPlayers(intval($res['count']));
-			$plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
-		}
+		/** @var Main $plugin */
+		$plugin = Main::getInstance();
+		$plugin->setCachedPlayers(intval($res['count']));
+		$plugin->setCachedMaxPlayers(intval($res['maxPlayers']));
 	}
 }

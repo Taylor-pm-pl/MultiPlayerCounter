@@ -4,7 +4,7 @@
 [![PHPStan](https://github.com/david-pm-pl/MultiPlayerCounter/actions/workflows/php.yml/badge.svg)](https://github.com/david-pm-pl/MultiPlayerCounter/actions/workflows/php.yml/badge.svg)
 [![Discord](https://img.shields.io/discord/1100650029573738508.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/)
 
-**NOTICE:** This plugin branch is for PocketMine-MP 4. <br/>
+**NOTICE:** This plugin branch is for PocketMine-MP 5. <br/>
 ✨ **Combine players of multiple servers**
 </div>
 
@@ -25,17 +25,17 @@
  ### Check server is online
 
   ```php
-  use davidglitch04\MultiPlayerCounter\API\MPCAPI;
+  use davidglitch04\MultiPlayerCounter\api\ServerAPI;
 
-  $status = MPCAPI::isOnline(ip: $ip, port: $port); // Return bool
+  $status = ServerAPI::isOnline(ip: $ip, port: $port); // Return bool
   var_dump($status);
   ```
 
  ### Get ServerInfo
   ```php
-  use davidglitch04\MultiPlayerCounter\API\MPCAPI;
+  use davidglitch04\MultiPlayerCounter\api\ServerAPI;
 
-  $status = MPCAPI::getServerInfo(ip: $ip, port: $port); // Return bool
+  $status = ServerAPI::getServerInfo(ip: $ip, port: $port); // Return bool
   var_dump($status);
   ```
 # Credits

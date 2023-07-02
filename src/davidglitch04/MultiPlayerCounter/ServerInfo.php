@@ -6,29 +6,26 @@ namespace davidglitch04\MultiPlayerCounter;
 
 use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
-use function explode;
 use function intval;
-use function strval;
 
 class ServerInfo {
-	/**@var string $ip */
-	protected string $ip;
+	/**@var string $address */
+	protected string $address;
 
 	/**@var int $port */
 	protected int $port;
 
 
-	public function __construct(string $data) {
-		$info = explode(":", $data);
-		$this->ip = strval($info[0]);
-		$this->port = intval($info[1]);
+	public function __construct(array $info) {
+		$this->address = $info["address"];
+		$this->port = intval($info["port"]);
 	}
 
 	/**
-	 * Get the IP address
+	 * Get the server address
 	 */
-	public function getIp() : string {
-		return $this->ip;
+	public function getAddress() : string {
+		return $this->address;
 	}
 
 	/**
@@ -39,10 +36,10 @@ class ServerInfo {
 	}
 
 	/**
-	 * Convert IP and port number to string
+	 * Convert to string
 	 */
-	public function toString() : string {
-		return $this->ip . ":" . $this->port;
+	public function __toString() : string {
+		return $this->address . ":" . $this->port;
 	}
 
 	/**
@@ -50,18 +47,18 @@ class ServerInfo {
 	 */
 	public function getInfo() : array {
 		try {
-			$qData = PMQuery::query($this->getIp(), $this->getPort());
+			$qData = PMQuery::query($this->getAddress(), $this->getPort());
 
 			return [
-				"Status" => "online",
-				"Players" => $qData['Players'],
-				"Max" => $qData['MaxPlayers']
+				"status" => "online",
+				"players" => $qData['Players'],
+				"max" => $qData['MaxPlayers']
 			];
 		} catch (PmQueryException $e) {
 			/**@var array $false */
 			$false = [
-				"Status" => "offline",
-				"error" => "Failed to query " . $this->toString() . ": " . $e->getMessage()
+				"status" => "offline",
+				"error" => "Failed to query " . $this->__toString() . ": " . $e->getMessage()
 			];
 			return $false;
 		}

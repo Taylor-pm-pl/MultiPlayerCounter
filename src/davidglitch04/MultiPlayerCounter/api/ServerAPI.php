@@ -6,15 +6,17 @@ namespace davidglitch04\MultiPlayerCounter\API;
 
 use davidglitch04\MultiPlayerCounter\ServerInfo;
 
-class MPCAPI implements API {
+class ServerAPI {
 	public static function getServerInfo(string $ip, int $port = 19132) : ServerInfo {
-		return new ServerInfo($ip . ":" . $port);
+		return new ServerInfo([
+			'address' => $ip,
+			'port' => $port
+		]);
 	}
 
 
 	public static function isOnline(string $ip, int $port = 19132) : bool {
-		$api = new ServerInfo($ip . ":" . $port);
-		$info = $api->getInfo();
-		return $info["Status"] == "online";
+		$info = self::getServerInfo($ip, $port)->getInfo();
+		return $info["status"] == "online";
 	}
 }

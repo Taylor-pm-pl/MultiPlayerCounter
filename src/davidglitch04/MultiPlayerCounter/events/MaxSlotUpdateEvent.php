@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace davidglitch04\MultiPlayerCounter\Event;
+namespace davidglitch04\MultiPlayerCounter\events;
 
 use pocketmine\event\Event;
 
