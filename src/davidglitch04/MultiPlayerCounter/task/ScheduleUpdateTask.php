@@ -21,11 +21,10 @@ class ScheduleUpdateTask extends Task {
 		$servers = $plugin->getConfig()->get('servers-to-query', []);
 		$array = [];
 		foreach ($servers as $info) {
-			/** @var array<string> $infoExplode */
 			$infoExplode = explode(":", $info);
 			$array[] = new ServerInfo([
-				'address' => $infoExplode[0],
-				'port' => $infoExplode[1],
+				'address' => strval($infoExplode[0]),
+				'port' => strval($infoExplode[1]),
 			]);
 		}
 		Server::getInstance()->getAsyncPool()->submitTask(new UpdatePlayersTask($array));

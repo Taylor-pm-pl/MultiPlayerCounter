@@ -17,7 +17,7 @@ class ServerInfo {
 
 	/** @param array<string, mixed> $info The information array. */
 	public function __construct(array $info) {
-		$this->address = $info["address"];
+		$this->address = strval($info["address"]);
 		$this->port = intval($info["port"]);
 	}
 
