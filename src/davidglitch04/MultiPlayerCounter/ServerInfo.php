@@ -7,6 +7,7 @@ namespace davidglitch04\MultiPlayerCounter;
 use libpmquery\PMQuery;
 use libpmquery\PmQueryException;
 use function intval;
+use function strval;
 
 class ServerInfo {
 	/**@var string $address */

@@ -9,6 +9,7 @@ use davidglitch04\MultiPlayerCounter\ServerInfo;
 use pocketmine\scheduler\Task;
 use pocketmine\Server;
 use function explode;
+use function strval;
 
 /**
  * Class ScheduleUpdateTask
