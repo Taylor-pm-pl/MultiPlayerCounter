@@ -35,7 +35,7 @@
   ```php
   use davidglitch04\MultiPlayerCounter\api\ServerAPI;
 
-  $status = ServerAPI::getServerInfo(ip: $ip, port: $port); // Return bool
+  $status = ServerAPI::getServerInfo(ip: $ip, port: $port); // Return ServerInfo
   var_dump($status);
   ```
 # Credits

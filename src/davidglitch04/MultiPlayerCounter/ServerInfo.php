@@ -56,9 +56,9 @@ class ServerInfo {
 			];
 		} catch (PmQueryException $e) {
 			return [
-                "online" => false,
-                "error" => "Failed to query " . $this->__toString() . ": " . $e->getMessage()
-            ];
+				"online" => false,
+				"error" => "Failed to query " . $this->__toString() . ": " . $e->getMessage()
+			];
 		}
 	}
 }

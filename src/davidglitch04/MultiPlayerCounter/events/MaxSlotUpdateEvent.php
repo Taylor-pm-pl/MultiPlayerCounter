@@ -8,8 +8,9 @@ use pocketmine\event\Event;
 
 class MaxSlotUpdateEvent extends Event {
 	public function __construct(
-        private int $slots
-    ) {}
+		private int $slots
+	) {
+	}
 
 
 	public function getSlots() : int {
