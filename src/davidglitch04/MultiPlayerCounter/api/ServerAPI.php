@@ -17,6 +17,6 @@ class ServerAPI {
 
 	public static function isOnline(string $ip, int $port = 19132) : bool {
 		$info = self::getServerInfo($ip, $port)->getInfo();
-		return $info["online"];
+		return boolval($info["online"]);
 	}
 }
